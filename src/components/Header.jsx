@@ -48,6 +48,7 @@ function Header(props) {
             </div>
           </div>
         </div>
+        <hr />
       </header>
     </Wrapper>
   );
@@ -64,6 +65,7 @@ const Wrapper = styled.div`
     justify-content: center;
     align-items: center;
     margin: 0 auto;
+    margin-bottom: -0.1rem;
   }
   .header-ct {
     width: calc(100% - 4.8rem);
@@ -74,6 +76,7 @@ const Wrapper = styled.div`
     justify-content: space-between;
     align-items: center;
     background-color: #191919;
+    border-bottom: 1px solid hwb(0 100% 0% / 0.2);
   }
   /* NAVIGATION */
   .main-nav {
