@@ -11,6 +11,8 @@ function AnimatedRoutes() {
     <AnimatePresence>
       <Routes location={location} key={location.pathname}>
         <Route path="/" exact={true} element={<Home>Hii Welcome home</Home>} />
+        <Route path="/earphones" element={<Earphones />} />
+        <Route path="/headphones" element={<Headphones />} />
       </Routes>
     </AnimatePresence>
     // }
