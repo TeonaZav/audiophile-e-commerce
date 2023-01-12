@@ -36,7 +36,8 @@ function Header(props) {
             >
               0
             </span>
-            <CartIcon className="cart-icon" />
+            {/* <CartIcon className="cart-icon" /> */}
+            <img src={process.env.PUBLIC_URL + "/cart.png"} alt="" />
           </div>
 
           <div className="mobile-nav-container">

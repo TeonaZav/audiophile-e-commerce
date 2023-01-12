@@ -30,3 +30,20 @@ body {
   display: flex;
   overflow-x: hidden !important;
 }
+.btn,
+.btn:link,
+.btn:visited {
+  display: inline-block;
+  font-size: 1.3rem;
+  line-height: 1.8rem;
+  font-weight: 700;
+  padding: 1.5rem 3rem;
+  border-radius: 0.3rem;
+  letter-spacing: 0.1rem;
+  text-decoration: none;
+  border: none;
+  cursor: pointer;
+  font-family: inherit;
+  transition: all 0.3s;
+  text-transform: uppercase;
+}
