@@ -1,11 +1,9 @@
 import React from "react";
-import Header from "./components/Header";
-import "./App.css";
-
+import AnimatedRoutes from "./components/AnimatedRoutes";
 function App() {
   return (
     <div className="App">
-      <Header />
+      <AnimatedRoutes />
     </div>
   );
 }
