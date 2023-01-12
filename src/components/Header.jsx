@@ -1,16 +1,42 @@
-import React from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
 import Navbar from "./Navbar";
 import MobileNavIcon from "./MobileNavIcon";
 import { CartIcon } from "./CartIcon";
 import { NavLink } from "react-router-dom";
 function Header(props) {
+  //============ MOBILE NAVIGATION ========= //
+  const [menuIsClose, setMenuIsClose] = useState(true);
+  const handleMobileNav = (e) => {
+    setMenuIsClose(!menuIsClose);
+    const mobileNavigation = document.querySelector(".mobile-nav");
+
+    if (menuIsClose) {
+      mobileNavigation.style.visibility = "visible";
+      mobileNavigation.style.opacity = "1";
+      mobileNavigation.style.transform = "translate(0, 0)";
+      document.querySelectorAll(".line")[0].style.transform =
+        "rotate(45deg) translate(0px, -3.2px)";
+      document.querySelectorAll(".line")[1].style.transform =
+        "rotate(-45deg) translate(0px, 3.2px)";
+      document.querySelectorAll(".line")[2].style.opacity = "0";
+    } else if (!menuIsClose) {
+      mobileNavigation.style.visibility = "hidden";
+      mobileNavigation.style.opacity = "0";
+      mobileNavigation.style.transform = "translate(-100%, 0)";
+      document.querySelectorAll(".line")[0].style.transform =
+        "rotate(0deg) translate(0, 0)";
+      document.querySelectorAll(".line")[1].style.transform =
+        "rotate(0deg) translate(0, 0)";
+      document.querySelectorAll(".line")[2].style.opacity = "1";
+    }
+  };
   return (
     <Wrapper>
       <header className="header nav-open">
         <div className="header-ct">
           <div className="logo-nav-container">
-            <div className="mobile-header">
+            <div className="mobile-header" onClick={handleMobileNav}>
               <MobileNavIcon />
             </div>
 
@@ -48,7 +74,7 @@ function Header(props) {
             </div>
           </div>
         </div>
-        <hr />
+        <div className={`${!menuIsClose ? "overlay hidden" : "overlay"}`}></div>
       </header>
     </Wrapper>
   );
@@ -125,24 +151,30 @@ const Wrapper = styled.div`
   /************ MOBILE NAVIGATION **********/
 
   .mobile-nav-wrap {
-    width: 50%;
+    width: 80vw;
     overflow: hidden !important;
     visibility: hidden;
   }
 
   .mobile-nav-container {
     position: absolute;
-    width: 50%;
+    width: 80vw;
     height: 100%;
     top: 0rem;
+    left: 0;
     z-index: 1500;
   }
 
   .mobile-nav {
-    background-color: #ffffff;
-    max-width: 66%;
-    height: 90rem;
+    background: #191919ea;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    border: 1px solid #191919ea;
+    width: 80%;
+    height: 100vh;
     transform: translate(-100%, 0);
+    color: #ffffff;
     -webkit-transition: all 0.2s ease-in-out;
     -o-transition: all 0.2s ease-in-out;
     transition: all 0.2s ease-in-out;

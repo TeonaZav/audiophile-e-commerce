@@ -38,12 +38,17 @@ const Wrapper = styled.ul`
     list-style-type: none;
   }
   .nav-link {
-    color: #1d2026;
+    color: #ffffffd5;
     font-size: 1.8rem;
-    font-weight: 700;
+    font-weight: 400;
     display: block;
+    text-decoration: none;
+    margin-bottom: 2.4rem;
   }
-
+  .nav-link:hover,
+  .nav-link:active {
+    color: #d87d4a;
+  }
   @media (min-width: 90em) {
     .nav-list {
       padding-top: 0rem;
@@ -57,7 +62,7 @@ const Wrapper = styled.ul`
     .nav-link:visited {
       display: inline-block;
       text-decoration: none;
-      color: #ffffff;
+      margin-bottom: 0;
       font-weight: 400;
       font-size: 1.5rem;
       line-height: 2.6rem;
