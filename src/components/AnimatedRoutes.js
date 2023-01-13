@@ -3,6 +3,9 @@ import { Route, Routes, useLocation } from "react-router-dom";
 import Home from "../pages/Home";
 import Earphones from "../pages/Earphones";
 import Headphones from "../pages/Headphones";
+import Products from "../pages/Products";
+import SingleProduct from "../pages/SingleProduct";
+import Checkout from "../pages/Checkout";
 import { AnimatePresence } from "framer-motion";
 function AnimatedRoutes() {
   const location = useLocation();
@@ -13,9 +16,11 @@ function AnimatedRoutes() {
         <Route path="/" exact={true} element={<Home>Hii Welcome home</Home>} />
         <Route path="/earphones" element={<Earphones />} />
         <Route path="/headphones" element={<Headphones />} />
+        <Route path="/products" element={<Products />} />
+        <Route path="/products:id" element={<SingleProduct />} />
+        <Route path="/checkout" element={<Checkout />} />
       </Routes>
     </AnimatePresence>
-    // }
   );
 }
 export default AnimatedRoutes;

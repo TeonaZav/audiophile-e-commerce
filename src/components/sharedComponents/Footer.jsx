@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import Navbar from "./Navbar";
+import Navbar from "../Navbar";
 import { NavLink } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {

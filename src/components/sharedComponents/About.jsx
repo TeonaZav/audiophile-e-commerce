@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import AboutImageMobile from "../assets/shared/mobile/image-best-gear.jpg";
+import AboutImageMobile from "../../assets/shared/mobile/image-best-gear.jpg";
 function About(props) {
   return (
     <Wrapper>
@@ -89,7 +89,7 @@ const Wrapper = styled.div`
       gap: 6.3rem;
     }
     .main-img {
-      content: url(${require(`../assets/shared/tablet/image-best-gear.jpg`)}) !important;
+      content: url(${require(`../../assets/shared/tablet/image-best-gear.jpg`)}) !important;
     }
     .main-img {
       width: calc(100% - 7.8rem);
@@ -109,7 +109,7 @@ const Wrapper = styled.div`
     }
 
     .main-img {
-      content: url(${require(`../assets/shared/desktop/image-best-gear.jpg`)}) !important;
+      content: url(${require(`../../assets/shared/desktop/image-best-gear.jpg`)}) !important;
     }
     .main-img {
       width: 54rem;

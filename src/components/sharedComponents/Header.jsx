@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import styled from "styled-components";
-import Navbar from "./Navbar";
-import MobileNavIcon from "./MobileNavIcon";
-import { CartIcon } from "./CartIcon";
+import Navbar from "../Navbar";
+import MobileNavIcon from "../icons/MobileNavIcon";
+import { CartIcon } from "../icons/CartIcon";
 import { NavLink } from "react-router-dom";
 
 function Header(props) {
