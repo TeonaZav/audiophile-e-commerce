@@ -4,6 +4,7 @@ import Navbar from "./Navbar";
 import MobileNavIcon from "./MobileNavIcon";
 import { CartIcon } from "./CartIcon";
 import { NavLink } from "react-router-dom";
+
 function Header(props) {
   //============ MOBILE NAVIGATION ========= //
   const [menuIsClose, setMenuIsClose] = useState(true);
@@ -180,6 +181,26 @@ const Wrapper = styled.div`
     transition: all 0.2s ease-in-out;
     opacity: 0;
   }
+  /**********
+  MOBILE NAV list 
+  **********/
+  .nav-list {
+    padding-top: 9.2rem;
+    list-style-type: none;
+    margin-left: 10%;
+  }
+  .nav-link {
+    color: #ffffffd5;
+    font-size: 1.8rem;
+    font-weight: 400;
+    display: block;
+    text-decoration: none;
+    margin-bottom: 2.4rem;
+  }
+  .nav-link:hover,
+  .nav-link:active {
+    color: #d87d4a;
+  }
   .mobile-header {
     width: 5rem;
     color: #fff;
@@ -216,6 +237,31 @@ const Wrapper = styled.div`
     }
     .cart-product-number {
       right: 15rem;
+    }
+    .nav-list {
+      padding-top: 0rem;
+      padding-left: 0rem;
+      list-style: none;
+      display: flex;
+      align-items: center;
+      gap: 3.2rem;
+      margin-left: unset;
+    }
+    .nav-link:link,
+    .nav-link:visited {
+      display: inline-block;
+      text-decoration: none;
+      margin-bottom: 0;
+      font-weight: 400;
+      font-size: 1.5rem;
+      line-height: 2.6rem;
+      transition: all 0.3s;
+      padding: 0rem 0rem 4.1rem 0rem;
+    }
+    .nav-link:hover,
+    .nav-link:active {
+      color: #d87d4a;
+      box-shadow: 0 0.4rem #d87d4a;
     }
   }
 `;
