@@ -1,43 +1,20 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import styled from "styled-components";
 import Navbar from "../Navbar";
 import MobileNavIcon from "../icons/MobileNavIcon";
-import { CartIcon } from "../icons/CartIcon";
 import { NavLink } from "react-router-dom";
-
-function Header(props) {
-  //============ MOBILE NAVIGATION ========= //
-  const [menuIsClose, setMenuIsClose] = useState(true);
-  const handleMobileNav = (e) => {
-    setMenuIsClose(!menuIsClose);
-    const mobileNavigation = document.querySelector(".mobile-nav");
-
-    if (menuIsClose) {
-      mobileNavigation.style.visibility = "visible";
-      mobileNavigation.style.opacity = "1";
-      mobileNavigation.style.transform = "translate(0, 0)";
-      document.querySelectorAll(".line")[0].style.transform =
-        "rotate(45deg) translate(0px, -3.2px)";
-      document.querySelectorAll(".line")[1].style.transform =
-        "rotate(-45deg) translate(0px, 3.2px)";
-      document.querySelectorAll(".line")[2].style.opacity = "0";
-    } else if (!menuIsClose) {
-      mobileNavigation.style.visibility = "hidden";
-      mobileNavigation.style.opacity = "0";
-      mobileNavigation.style.transform = "translate(-100%, 0)";
-      document.querySelectorAll(".line")[0].style.transform =
-        "rotate(0deg) translate(0, 0)";
-      document.querySelectorAll(".line")[1].style.transform =
-        "rotate(0deg) translate(0, 0)";
-      document.querySelectorAll(".line")[2].style.opacity = "1";
-    }
-  };
+import { useProductsContext } from "../../context/products_context";
+function Header() {
+  const { menuIsClose, openSidebar, closeSidebar } = useProductsContext();
   return (
     <Wrapper>
       <header className="header nav-open">
         <div className="header-ct">
           <div className="logo-nav-container">
-            <div className="mobile-header" onClick={handleMobileNav}>
+            <div
+              className="mobile-header"
+              onClick={menuIsClose ? closeSidebar : openSidebar}
+            >
               <MobileNavIcon />
             </div>
 
@@ -63,13 +40,14 @@ function Header(props) {
             >
               0
             </span>
-            {/* <CartIcon className="cart-icon" /> */}
             <img src={process.env.PUBLIC_URL + "/cart.png"} alt="" />
           </div>
 
           <div className="mobile-nav-container">
             <div className="mobile-nav-wrap">
-              <nav className="mobile-nav">
+              <nav
+                className={menuIsClose ? "mobile-nav close" : "mobile-nav open"}
+              >
                 <Navbar />
               </nav>
             </div>
@@ -174,11 +152,19 @@ const Wrapper = styled.div`
     border: 1px solid #191919ea;
     width: 80%;
     height: 100vh;
-    transform: translate(-100%, 0);
     color: #ffffff;
     -webkit-transition: all 0.2s ease-in-out;
     -o-transition: all 0.2s ease-in-out;
     transition: all 0.2s ease-in-out;
+  }
+  .mobile-nav.open {
+    visibility: visible;
+    opacity: 1;
+    transform: translate(0, 0);
+  }
+  .mobile-nav.close {
+    transform: translate(-100%, 0);
+    visibility: hidden;
     opacity: 0;
   }
   /**********
