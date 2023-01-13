@@ -12,6 +12,11 @@ function Footer(props) {
     <Wrapper>
       <footer className="footer">
         <div className="footer-ct">
+          <img
+            src={process.env.PUBLIC_URL + "/rectangle.png"}
+            className="footer-box-style-img"
+            alt="logo"
+          />
           <div className="logo-nav-container">
             <div>
               <NavLink to="/">
@@ -76,8 +81,13 @@ const Wrapper = styled.footer`
     background-color: #191919;
     border-bottom: 1px solid hwb(0 100% 0% / 0.2);
     text-align: center;
+    position: relative;
   }
-
+  .footer-box-style-img {
+    position: absolute;
+    top: -0.1rem;
+    left: 0rem;
+  }
   .logo-nav-container {
     display: flex;
     flex-direction: column;
@@ -160,11 +170,11 @@ const Wrapper = styled.footer`
     .logo-nav-container {
       align-items: flex-start;
     }
-    align-items: flex-start;
     .footer-ct {
       width: calc(100% - 7.8rem);
       align-items: flex-start;
     }
+
     .footer-text-box {
       width: 100%;
       align-items: flex-start;
@@ -192,8 +202,13 @@ const Wrapper = styled.footer`
   }
 
   @media (min-width: 90em) {
+    .logo-nav-container {
+      width: 100%;
+      flex-direction: row;
+      justify-content: space-between;
+    }
     .footer-ct {
-      width: calc(100% - 33rem);
+      width: calc(100vw - 33rem);
     }
 
     .footer-text-box {
