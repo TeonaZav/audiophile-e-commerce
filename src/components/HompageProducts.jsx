@@ -9,7 +9,7 @@ function HompageProducts(props) {
           <div className="product-image">
             <img
               src={require(`../assets/home/mobile/image-speaker-zx9.png`)}
-              alt="speaker product"
+              alt="speaker"
             />
           </div>
 
@@ -38,7 +38,23 @@ function HompageProducts(props) {
         </div>
         <div className="container hompage-product2-ct">
           <div className="name-btn-wrap">
-            <h2>ZX9 SPEAKER</h2>
+            <h2>ZX7 SPEAKER</h2>
+            <div>
+              <NavLink className="btn btn--outline" to="/">
+                See Product
+              </NavLink>
+            </div>
+          </div>
+        </div>
+        <div className="container hompage-product3-ct">
+          <div className="container image-ct">
+            <img
+              src={require(`../assets/home/mobile/image-earphones-yx1.jpg`)}
+              alt="headphone"
+            />
+          </div>
+          <div className="container btn-ct">
+            <h2>YX1 EARPHONES</h2>
             <div>
               <NavLink className="btn btn--outline" to="/">
                 See Product
@@ -55,7 +71,7 @@ const Wrapper = styled.section`
   height: 142.9rem;
   display: flex;
   flex-direction: column;
-  justify-content: flex-start;
+  justify-content: center;
   align-items: center;
   text-align: center;
   p {
@@ -86,6 +102,13 @@ const Wrapper = styled.section`
   .btn--outline:active {
     background-color: #000000;
     color: #fff;
+  }
+  h2 {
+    font-weight: 700;
+    font-size: 2.8rem;
+    line-height: 3.8rem;
+    letter-spacing: 2px;
+    color: #000000;
   }
   .container {
     width: 32.7rem;
@@ -143,6 +166,7 @@ const Wrapper = styled.section`
         color: var(--pale-white-75);
       }
     }
+    margin-bottom: 2.4rem;
   }
   .hompage-product2-ct {
     height: 32rem;
@@ -164,13 +188,34 @@ const Wrapper = styled.section`
       align-items: flex-start;
       gap: 3.2rem;
       text-align: left;
-      h2 {
-        font-weight: 700;
-        font-size: 2.8rem;
-        line-height: 3.8rem;
-        letter-spacing: 2px;
-        color: #000000;
-      }
+    }
+    margin-bottom: 2.4rem;
+  }
+  .hompage-product3-ct {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 2.4rem;
+    height: 42.4rem;
+    .image-ct {
+      height: 20rem;
+    }
+    .image-ct img {
+      content: url(${require(`../assets/home/mobile/image-earphones-yx1.jpg`)}) !important;
+      width: 100%;
+      height: 100%;
+    }
+    .btn-ct {
+      padding: 0 2.4rem;
+      height: 20rem;
+      background-color: var(--card-color);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: flex-start;
+      text-align: left;
+      gap: 3.2rem;
     }
   }
   @media (min-width: 48em) {
@@ -211,12 +256,26 @@ const Wrapper = styled.section`
       -moz-background-size: cover;
       -o-background-size: cover;
       background-size: cover;
-      padding: 4rem;
+      padding: 0 6.3rem;
+    }
+    .hompage-product3-ct {
+      flex-direction: row;
+      height: 32rem;
+      .image-ct {
+        height: 32rem;
+      }
+      .image-ct img {
+        content: url(${require(`../assets/home/tablet/image-earphones-yx1.jpg`)}) !important;
+      }
+      .btn-ct {
+        height: 32rem;
+        padding: 0 6.3rem;
+      }
     }
   }
   @media (min-width: 90em) {
     .container {
-      width: calc(100vw - 33rem);
+      width: 111rem;
     }
     .hompage-product1-ct {
       height: 56rem;
@@ -246,6 +305,7 @@ const Wrapper = styled.section`
         margin-bottom: 4rem;
         text-align: left;
       }
+      margin-bottom: 4.8rem;
     }
     .hompage-product2-ct {
       background-image: url(${require("../assets/home/desktop/image-speaker-zx7.jpg")});
@@ -255,7 +315,22 @@ const Wrapper = styled.section`
       -moz-background-size: cover;
       -o-background-size: cover;
       background-size: cover;
-      padding: 16.5rem;
+      padding: 0 9.5rem;
+      margin-bottom: 4.8rem;
+    }
+    .hompage-product3-ct {
+      .image-ct {
+        width: 54rem;
+        height: 32rem;
+      }
+      .image-ct img {
+        content: url(${require(`../assets/home/desktop/image-earphones-yx1.jpg`)}) !important;
+      }
+      .btn-ct {
+        width: 54rem;
+        height: 32rem;
+        padding: 0 9.5rem;
+      }
     }
   }
 `;
