@@ -36,6 +36,16 @@ function HompageProducts(props) {
             </div>
           </div>
         </div>
+        <div className="container hompage-product2-ct">
+          <div className="name-btn-wrap">
+            <h2>ZX9 SPEAKER</h2>
+            <div>
+              <NavLink className="btn btn--outline" to="/">
+                See Product
+              </NavLink>
+            </div>
+          </div>
+        </div>
       </section>
     </Wrapper>
   );
@@ -48,6 +58,35 @@ const Wrapper = styled.section`
   justify-content: flex-start;
   align-items: center;
   text-align: center;
+  p {
+    font-weight: 500;
+    font-size: 1.5rem;
+    line-height: 2.5rem;
+    opacity: 0.75;
+  }
+
+  .btn--full:link,
+  .btn--full:visited {
+    background-color: #000000;
+    color: #fff;
+    z-index: 100;
+  }
+  .btn--full:hover,
+  .btn--full:active {
+    background-color: #4c4c4c;
+    z-index: 10;
+  }
+  .btn--outline:link,
+  .btn--outline:visited {
+    background-color: transparent;
+    color: #000000;
+    border: 1px solid #000000;
+  }
+  .btn--outline:hover,
+  .btn--outline:active {
+    background-color: #000000;
+    color: #fff;
+  }
   .container {
     width: 32.7rem;
     border-radius: 0.8rem;
@@ -105,24 +144,34 @@ const Wrapper = styled.section`
       }
     }
   }
-
-  p {
-    font-weight: 500;
-    font-size: 1.5rem;
-    line-height: 2.5rem;
-    opacity: 0.75;
-  }
-
-  .btn--full:link,
-  .btn--full:visited {
-    background-color: #000000;
-    color: #fff;
-    z-index: 100;
-  }
-  .btn--full:hover,
-  .btn--full:active {
-    background-color: #4c4c4c;
-    z-index: 10;
+  .hompage-product2-ct {
+    height: 32rem;
+    background: url(${require("../assets/home/mobile/image-speaker-zx7.jpg")});
+    background-repeat: no-repeat;
+    background-position: center center;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    padding: 2.4rem;
+    .name-btn-wrap {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 3.2rem;
+      text-align: left;
+      h2 {
+        font-weight: 700;
+        font-size: 2.8rem;
+        line-height: 3.8rem;
+        letter-spacing: 2px;
+        color: #000000;
+      }
+    }
   }
   @media (min-width: 48em) {
     .container {
@@ -153,6 +202,16 @@ const Wrapper = styled.section`
           letter-spacing: 2px;
         }
       }
+    }
+    .hompage-product2-ct {
+      background: url(${require("../assets/home/tablet/image-speaker-zx7.jpg")});
+      background-repeat: no-repeat;
+      background-position: center center;
+      -webkit-background-size: cover;
+      -moz-background-size: cover;
+      -o-background-size: cover;
+      background-size: cover;
+      padding: 4rem;
     }
   }
   @media (min-width: 90em) {
@@ -187,6 +246,16 @@ const Wrapper = styled.section`
         margin-bottom: 4rem;
         text-align: left;
       }
+    }
+    .hompage-product2-ct {
+      background-image: url(${require("../assets/home/desktop/image-speaker-zx7.jpg")});
+      background-repeat: no-repeat;
+      background-position: center center;
+      -webkit-background-size: cover;
+      -moz-background-size: cover;
+      -o-background-size: cover;
+      background-size: cover;
+      padding: 16.5rem;
     }
   }
 `;
