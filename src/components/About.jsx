@@ -30,7 +30,7 @@ function About(props) {
 }
 const Wrapper = styled.div`
   width: 100vw;
-  height: 93.8rem;
+  height: 81.8rem;
   background-color: #f2f2f2;
   text-align: center;
   display: flex;
@@ -39,10 +39,12 @@ const Wrapper = styled.div`
   align-items: center;
   .main-img {
     width: 32.7rem;
-    height: 30rem;
+    min-height: 30rem;
   }
   .main-img img {
     max-width: 100%;
+    height: 100%;
+    border-radius: 0.8rem;
   }
   .about-ct {
     height: 100%;
@@ -83,23 +85,26 @@ const Wrapper = styled.div`
     color: #d87d4a;
   }
   @media (min-width: 48em) {
-    height: 82.5rem;
-
+    height: 72.9rem;
     .about-ct {
       gap: 6.3rem;
     }
     .main-img {
-      content: url(${require(`../assets/shared/tablet/image-best-gear.jpg`)}) !important;
-    }
-    .main-img {
       width: calc(100% - 7.8rem);
+      height: 30rem;
+    }
+    .main-img img {
+      content: url(${require(`../assets/shared/tablet/image-best-gear.jpg`)}) !important;
+      width: 100%;
+      height: 100%;
+      border-radius: 0.8rem;
     }
     .about-text-box {
       width: 57.3rem;
     }
   }
   @media (min-width: 90em) {
-    height: 98.8rem;
+    min-height: 78.8rem;
     flex-direction: row;
     .about-ct {
       flex-direction: row-reverse;
@@ -107,14 +112,17 @@ const Wrapper = styled.div`
       min-width: 111rem;
       justify-content: space-between;
     }
-
-    .main-img {
-      content: url(${require(`../assets/shared/desktop/image-best-gear.jpg`)}) !important;
-    }
     .main-img {
       width: 54rem;
       height: 58.8rem;
     }
+    .main-img img {
+      content: url(${require(`../assets/shared/desktop/image-best-gear.jpg`)}) !important;
+      border-radius: 0.8rem;
+      height: 100%;
+      width: 100%;
+    }
+
     .about-text-box {
       width: 44.5rem;
       text-align: left;

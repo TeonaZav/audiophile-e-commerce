@@ -153,6 +153,7 @@ const Wrapper = styled.footer`
     cursor: pointer;
     &:hover {
       color: #d87d4a;
+      transition: all 0.3s;
     }
   }
   .text-icons-ct {
@@ -167,6 +168,9 @@ const Wrapper = styled.footer`
     gap: 4.8rem;
   }
   @media (min-width: 48em) {
+    .footer {
+      height: 40rem;
+    }
     .logo-nav-container {
       align-items: flex-start;
     }
@@ -202,6 +206,9 @@ const Wrapper = styled.footer`
   }
 
   @media (min-width: 90em) {
+    .footer {
+      height: 36.5rem;
+    }
     .logo-nav-container {
       width: 100%;
       flex-direction: row;

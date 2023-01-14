@@ -46,12 +46,14 @@ function CategoryItems(props) {
 }
 const Wrapper = styled.section`
   width: 100vw;
-  height: 84.1rem;
+  height: 72.3rem;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: flex-end;
   align-items: center;
   background-color: #f2f2f2;
+  margin-bottom: 9.6rem;
+  margin-top: 9.6rem;
   .category-list {
     display: flex;
     flex-direction: column;
@@ -72,8 +74,7 @@ const Wrapper = styled.section`
     text-decoration: none;
     &:hover,
     &:active {
-      transition: all 0.2s;
-      transform: scale(1.03);
+      transition: all 0.3s;
     }
     &:hover .btn-shop,
     &:active .btn-shop {
@@ -120,9 +121,9 @@ const Wrapper = styled.section`
     margin-bottom: 2.2rem;
   }
   @media (min-width: 48em) {
-    height: 40.5rem;
+    height: 32rem;
     flex-direction: row;
-    border: 1px solid black;
+    justify-content: center;
     .category-list {
       flex-direction: row;
       gap: 1rem;
@@ -132,9 +133,10 @@ const Wrapper = styled.section`
     }
   }
   @media (min-width: 90em) {
-    height: 57.2rem;
+    height: 31.3rem;
     flex-direction: row;
-    border: 1px solid black;
+    margin-bottom: 11.8rem;
+    margin-top: 11.8rem;
     .category-list {
       gap: 3rem;
     }

@@ -170,6 +170,7 @@ const Wrapper = styled.section`
   }
   .hompage-product2-ct {
     height: 32rem;
+    margin-bottom: 9.6rem;
     background: url(${require("../assets/home/mobile/image-speaker-zx7.jpg")});
     background-repeat: no-repeat;
     background-position: center center;
@@ -219,6 +220,7 @@ const Wrapper = styled.section`
     }
   }
   @media (min-width: 48em) {
+    margin-bottom: 9.6rem;
     .container {
       width: calc(100vw - 8rem);
     }
@@ -274,6 +276,8 @@ const Wrapper = styled.section`
     }
   }
   @media (min-width: 90em) {
+    height: 129.6rem;
+    margin-bottom: 11.8rem;
     .container {
       width: 111rem;
     }

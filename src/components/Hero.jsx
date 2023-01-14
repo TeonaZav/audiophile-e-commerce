@@ -91,6 +91,7 @@ const Wrapper = styled.div`
   }
   @media (min-width: 48em) {
     height: 64rem;
+
     background-image: url(${require(`.././assets/home/tablet/image-header.jpg`)});
     .hero-text-box {
       width: 39.6rem;
