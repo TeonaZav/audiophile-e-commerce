@@ -49,7 +49,7 @@ const Wrapper = styled.section`
   height: 72.3rem;
   display: flex;
   flex-direction: column;
-  justify-content: flex-end;
+  justify-content: center;
   align-items: center;
   background-color: #f2f2f2;
   margin-bottom: 9.6rem;
