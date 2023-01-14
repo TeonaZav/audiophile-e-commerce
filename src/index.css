@@ -36,6 +36,7 @@ body {
 :root {
   --card-color: #eceaeae0;
   --pale-black-5: hwb(0 0% 100% / 0.5);
+  --pale-white-75: rgba(255, 255, 255, 0.75);
 }
 .App {
   width: 100vw;
