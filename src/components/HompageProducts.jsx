@@ -8,7 +8,10 @@ function HompageProducts(props) {
         <div className="container hompage-product1-ct">
           <div className="product-image">
             <img
-              src={require(`../assets/home/mobile/image-speaker-zx9.png`)}
+              src={
+                process.env.PUBLIC_URL +
+                "/assets/home/mobile/image-speaker-zx9.png"
+              }
               alt="speaker"
             />
           </div>
@@ -49,7 +52,10 @@ function HompageProducts(props) {
         <div className="container hompage-product3-ct">
           <div className="container image-ct">
             <img
-              src={require(`../assets/home/mobile/image-earphones-yx1.jpg`)}
+              src={
+                process.env.PUBLIC_URL +
+                "/assets/home/mobile/image-earphones-yx1.jpg"
+              }
               alt="headphone"
             />
           </div>
@@ -171,7 +177,7 @@ const Wrapper = styled.section`
   .hompage-product2-ct {
     height: 32rem;
     margin-bottom: 9.6rem;
-    background: url(${require("../assets/home/mobile/image-speaker-zx7.jpg")});
+
     background-repeat: no-repeat;
     background-position: center center;
     -webkit-background-size: cover;
@@ -203,7 +209,6 @@ const Wrapper = styled.section`
       height: 20rem;
     }
     .image-ct img {
-      content: url(${require(`../assets/home/mobile/image-earphones-yx1.jpg`)}) !important;
       width: 100%;
       height: 100%;
     }
@@ -233,7 +238,6 @@ const Wrapper = styled.section`
         margin-bottom: 6.4rem;
       }
       .product-image img {
-        content: url(${require(`../assets/home/tablet/image-speaker-zx9.png`)}) !important;
       }
       .pattern {
         top: -15%;
@@ -251,7 +255,6 @@ const Wrapper = styled.section`
       }
     }
     .hompage-product2-ct {
-      background: url(${require("../assets/home/tablet/image-speaker-zx7.jpg")});
       background-repeat: no-repeat;
       background-position: center center;
       -webkit-background-size: cover;
@@ -267,7 +270,6 @@ const Wrapper = styled.section`
         height: 32rem;
       }
       .image-ct img {
-        content: url(${require(`../assets/home/tablet/image-earphones-yx1.jpg`)}) !important;
       }
       .btn-ct {
         height: 32rem;
@@ -295,7 +297,6 @@ const Wrapper = styled.section`
         margin-bottom: -2.9rem;
       }
       .product-image img {
-        content: url(${require(`../assets/home/desktop/image-speaker-zx9.png`)}) !important;
       }
       .pattern {
         top: 0;
@@ -312,7 +313,6 @@ const Wrapper = styled.section`
       margin-bottom: 4.8rem;
     }
     .hompage-product2-ct {
-      background-image: url(${require("../assets/home/desktop/image-speaker-zx7.jpg")});
       background-repeat: no-repeat;
       background-position: center center;
       -webkit-background-size: cover;
@@ -328,7 +328,6 @@ const Wrapper = styled.section`
         height: 32rem;
       }
       .image-ct img {
-        content: url(${require(`../assets/home/desktop/image-earphones-yx1.jpg`)}) !important;
       }
       .btn-ct {
         width: 54rem;

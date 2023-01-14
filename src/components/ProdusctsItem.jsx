@@ -1,36 +1,53 @@
 import React from "react";
 import styled from "styled-components";
 import { NavLink } from "react-router-dom";
-import data from "../data.json";
-function ProdusctsItem(props) {
+
+function ProdusctsItem({ item, index }) {
   return (
     <Wrapper>
-      <div className="container products-item-ct">
-        <div className="container image-ct">
-          <img
-            src={require(`../assets/home/mobile/image-earphones-yx1.jpg`)}
-            alt="headphone"
-          />
-        </div>
-        <div className="container btn-text-ct">
-          <p className="subheading">NEW PRODUCT</p>
-          <h2>XX99 Mark I Headphon</h2>
-          <p>
-            The new XX99 Mark II headphones is the pinnacle of pristine audio.
-            It redefines your premium headphone experience by reproducing the
-            balanced depth and precision of studio-quality sound.
-          </p>
-          <div>
-            <NavLink className="btn btn--full" to="/">
-              See Product
-            </NavLink>
+      <li key={item.id}>
+        <div
+          className={
+            index > 0 && index % 2 !== 0
+              ? "container products-item-ct reverse"
+              : "container products-item-ct"
+          }
+        >
+          <div className="container image-ct">
+            <picture>
+              <source
+                media="(min-width:768px)"
+                srcSet={process.env.PUBLIC_URL + item.image.tablet.substring(1)}
+                alt="headphone"
+              />
+              <source
+                media="(min-width:1440px)"
+                srcSet={
+                  process.env.PUBLIC_URL + item.image.desktop.substring(1)
+                }
+              />
+              <img
+                src={process.env.PUBLIC_URL + item.image.mobile.substring(1)}
+                alt="headphone"
+              />
+            </picture>
+          </div>
+          <div className="container btn-text-ct">
+            <p className="subheading">{item.new ? "NEW PRODUCT" : null}</p>
+            <h2>{item.name}</h2>
+            <p>{item.description}</p>
+            <div>
+              <NavLink className="btn btn--full" to="/">
+                See Product
+              </NavLink>
+            </div>
           </div>
         </div>
-      </div>
+      </li>
     </Wrapper>
   );
 }
-const Wrapper = styled.section`
+const Wrapper = styled.li`
   width: 100vw;
   height: 84.4rem;
   display: flex;
@@ -86,10 +103,15 @@ const Wrapper = styled.section`
   }
   .image-ct {
     height: 35.2rem;
+    background-color: var(--card-color);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
   }
   .image-ct img {
-    width: 100%;
-    height: 100%;
+    width: 95%;
+    height: auto;
   }
   .btn-text-ct {
     width: 100%;
@@ -102,7 +124,6 @@ const Wrapper = styled.section`
     gap: 2.4rem;
   }
   @media (min-width: 48em) {
-    height: 82.6rem;
     .container {
       width: 68.9rem;
     }
@@ -121,11 +142,15 @@ const Wrapper = styled.section`
       width: 68.9rem;
       height: 35.2rem;
     }
-
+    .image-ct img {
+      width: 80%;
+      height: auto;
+    }
     .btn-text-ct {
       padding: 0 5.9rem;
       height: 47.4rem;
       gap: 3.2rem;
+      justify-content: flex-start;
     }
   }
   @media (min-width: 90em) {
@@ -139,6 +164,9 @@ const Wrapper = styled.section`
       justify-content: space-between;
       gap: 0rem;
     }
+    .products-item-ct.reverse {
+      flex-direction: row-reverse;
+    }
     .subheading {
       text-align: left;
       align-self: flex-start;
@@ -146,9 +174,17 @@ const Wrapper = styled.section`
     .image-ct {
       width: 54rem;
       height: 56rem;
+      text-align: center;
     }
-
+    .image-ct img {
+      width: 95%;
+      height: auto;
+      justify-self: center;
+      align-self: center;
+    }
     .btn-text-ct {
+      justify-content: center;
+      align-items: flex-start;
       text-align: left;
       width: 44.5rem;
       height: 56rem;

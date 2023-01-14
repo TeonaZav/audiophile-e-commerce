@@ -16,7 +16,10 @@ function CategoryItems(props) {
               <li className="category-item" key={id}>
                 <div className="category-img">
                   <img
-                    src={require(`../../assets/shared/categories/image-${name.toLowerCase()}.png`)}
+                    src={
+                      process.env.PUBLIC_URL +
+                      `/assets/shared/categories/image-${name.toLowerCase()}.png`
+                    }
                     alt={`${name.toLowerCase()}`}
                   />
                   {console.log(pic)}
@@ -51,7 +54,7 @@ const Wrapper = styled.section`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background-color: #f2f2f2;
+  background-color: var(--main-bg-color);
   margin-bottom: 9.6rem;
   margin-top: 9.6rem;
   .category-list {

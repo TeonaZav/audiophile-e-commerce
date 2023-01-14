@@ -27,7 +27,6 @@ function Hero(props) {
 const Wrapper = styled.div`
   width: 100vw;
   height: 51.1rem;
-  background-image: url(${require(`.././assets/home/mobile/image-header.jpg`)});
   background-repeat: no-repeat;
   background-size: cover;
   background-position: bottom center;
@@ -92,7 +91,6 @@ const Wrapper = styled.div`
   @media (min-width: 48em) {
     height: 64rem;
 
-    background-image: url(${require(`.././assets/home/tablet/image-header.jpg`)});
     .hero-text-box {
       width: 39.6rem;
       margin-bottom: 4rem;
@@ -107,7 +105,6 @@ const Wrapper = styled.div`
   }
   @media (min-width: 90em) {
     height: 64rem;
-    background-image: url(${require(`.././assets/home/desktop/image-hero.jpg`)});
     .hero-ct {
       width: 77%;
       justify-content: center;

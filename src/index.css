@@ -30,11 +30,12 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  background-color: #f2f2f2;
+  background-color: #fcfcfc;
   overflow-x: hidden !important;
 }
 :root {
-  --card-color: #eceaeae0;
+  --main-bg-color: #fcfcfc;
+  --card-color: #f1f1f1;
   --pale-black-5: hwb(0 0% 100% / 0.5);
   --pale-white-75: rgba(255, 255, 255, 0.75);
 }

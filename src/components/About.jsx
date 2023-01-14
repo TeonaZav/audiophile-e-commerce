@@ -1,13 +1,36 @@
 import React from "react";
 import styled from "styled-components";
-import AboutImageMobile from "../assets/shared/mobile/image-best-gear.jpg";
+
 function About(props) {
   return (
     <Wrapper>
       <section className="section-about">
         <div className="about-ct">
           <div className="main-img">
-            <img src={AboutImageMobile} alt="a man with black headphones" />
+            <picture>
+              <source
+                media="(min-width:768px)"
+                srcSet={
+                  process.env.PUBLIC_URL +
+                  "/assets/shared/tablet/image-best-gear.jpg"
+                }
+                alt="headphone"
+              />
+              <source
+                media="(min-width:1440px)"
+                srcSet={
+                  process.env.PUBLIC_URL +
+                  "/assets/shared/desktop/image-best-gear.jpg"
+                }
+              />
+              <img
+                src={
+                  process.env.PUBLIC_URL +
+                  "/assets/shared/mobile/image-best-gear.jpg"
+                }
+                alt="headphone"
+              />
+            </picture>
           </div>
           <div className="about-text-box">
             <h2>
@@ -31,7 +54,7 @@ function About(props) {
 const Wrapper = styled.div`
   width: 100vw;
   height: 81.8rem;
-  background-color: #f2f2f2;
+  background-color: var(--main-bg-color);
   text-align: center;
   display: flex;
   flex-direction: column;
@@ -94,7 +117,6 @@ const Wrapper = styled.div`
       height: 30rem;
     }
     .main-img img {
-      content: url(${require(`../assets/shared/tablet/image-best-gear.jpg`)}) !important;
       width: 100%;
       height: 100%;
       border-radius: 0.8rem;
@@ -117,7 +139,6 @@ const Wrapper = styled.div`
       height: 58.8rem;
     }
     .main-img img {
-      content: url(${require(`../assets/shared/desktop/image-best-gear.jpg`)}) !important;
       border-radius: 0.8rem;
       height: 100%;
       width: 100%;
