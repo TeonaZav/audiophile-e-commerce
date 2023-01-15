@@ -2,6 +2,7 @@ import React from "react";
 import Header from "../components/sharedComponents/Header";
 import Category from "../components/sharedComponents/Category";
 import CategoryItems from "../components/sharedComponents/CategoryItems";
+import LoadingComponent from "../components/sharedComponents/LoadingComponent";
 import About from "../components/About";
 import Footer from "../components/sharedComponents/Footer";
 import ProductList from "../components/ProductList";
@@ -14,7 +15,12 @@ function Speakers() {
     <div>
       <Header />
       <Category category={"speakers"} />
-      <ProductList data={speakers} />
+      {productIsLoading ? (
+        <LoadingComponent />
+      ) : (
+        <ProductList data={speakers} />
+      )}
+
       <CategoryItems />
       <About />
       <Footer />

@@ -5,6 +5,7 @@ import Category from "../components/sharedComponents/Category";
 import ProductList from "../components/ProductList";
 import About from "../components/About";
 import Footer from "../components/sharedComponents/Footer";
+import LoadingComponent from "../components/sharedComponents/LoadingComponent";
 import data from "../data.json";
 import { useProductsContext } from "../context/products_context";
 function Headphones(props) {
@@ -14,7 +15,13 @@ function Headphones(props) {
     <div>
       <Header />
       <Category category={"headphones"} />
-      <ProductList data={headphones} />
+
+      {productIsLoading ? (
+        <LoadingComponent />
+      ) : (
+        <ProductList data={headphones} />
+      )}
+
       <CategoryItems />
       <About />
       <Footer />
