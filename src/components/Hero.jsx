@@ -28,14 +28,14 @@ const Wrapper = styled.div`
   width: 100vw;
   height: 51.1rem;
   background-repeat: no-repeat;
-  background-size: cover;
-  background-position: bottom center;
+  background-size: contain;
+  background-position: bottom 6rem center;
   background-color: #191919;
   text-align: center;
   display: flex;
   flex-direction: column;
   justify-content: center;
-
+  background-image: url(${require("../images/image-header-mobile.jpg")});
   .hero-ct {
     height: 100%;
     width: 100%;
@@ -90,7 +90,10 @@ const Wrapper = styled.div`
   }
   @media (min-width: 48em) {
     height: 64rem;
-
+    background-image: url(${require("../images/image-header-tablet.jpg")});
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: bottom 4.5rem center;
     .hero-text-box {
       width: 39.6rem;
       margin-bottom: 4rem;
@@ -104,6 +107,7 @@ const Wrapper = styled.div`
     }
   }
   @media (min-width: 90em) {
+    background-image: url(${require("../images/image-hero-desktop.jpg")});
     height: 64rem;
     .hero-ct {
       width: 77%;
