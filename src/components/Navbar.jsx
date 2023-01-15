@@ -1,8 +1,11 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
+import { useProductsContext } from "../context/products_context";
 function Navbar(props) {
+  const { menuIsClose, openSidebar } = useProductsContext();
+
   return (
-    <ul className="nav-list">
+    <ul className="nav-list" onClick={!menuIsClose ? openSidebar : null}>
       <li>
         <NavLink className="nav-link" to="/">
           HOME
