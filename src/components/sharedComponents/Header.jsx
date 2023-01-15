@@ -58,7 +58,7 @@ function Header() {
     </Wrapper>
   );
 }
-const Wrapper = styled.div`
+const Wrapper = styled.header`
   /* HEADER */
   .header {
     min-width: 100vw;
