@@ -9,6 +9,14 @@ function About(props) {
           <div className="main-img">
             <picture>
               <source
+                media="(min-width:1440px)"
+                srcSet={
+                  process.env.PUBLIC_URL +
+                  "/assets/shared/desktop/image-best-gear.jpg"
+                }
+                alt="headphone"
+              />
+              <source
                 media="(min-width:768px)"
                 srcSet={
                   process.env.PUBLIC_URL +
@@ -16,13 +24,7 @@ function About(props) {
                 }
                 alt="headphone"
               />
-              <source
-                media="(min-width:1440px)"
-                srcSet={
-                  process.env.PUBLIC_URL +
-                  "/assets/shared/desktop/image-best-gear.jpg"
-                }
-              />
+
               <img
                 src={
                   process.env.PUBLIC_URL +
@@ -130,9 +132,9 @@ const Wrapper = styled.div`
     flex-direction: row;
     .about-ct {
       flex-direction: row-reverse;
-      max-width: calc(100vw - 33rem);
-      min-width: 111rem;
+      width: 111rem;
       justify-content: space-between;
+      gap: 0;
     }
     .main-img {
       width: 54rem;

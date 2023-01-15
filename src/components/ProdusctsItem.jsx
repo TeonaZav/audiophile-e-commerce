@@ -16,16 +16,17 @@ function ProdusctsItem({ item, index }) {
           <div className="container image-ct">
             <picture>
               <source
-                media="(min-width:768px)"
-                srcSet={process.env.PUBLIC_URL + item.image.tablet.substring(1)}
-                alt="headphone"
-              />
-              <source
                 media="(min-width:1440px)"
                 srcSet={
                   process.env.PUBLIC_URL + item.image.desktop.substring(1)
                 }
               />
+              <source
+                media="(min-width:768px)"
+                srcSet={process.env.PUBLIC_URL + item.image.tablet.substring(1)}
+                alt="headphone"
+              />
+
               <img
                 src={process.env.PUBLIC_URL + item.image.mobile.substring(1)}
                 alt="headphone"
