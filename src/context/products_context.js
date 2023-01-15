@@ -14,6 +14,9 @@ const initialState = {
   menuIsClose: true,
   productIsLoading: false,
   products: [],
+  headphones: [],
+  earphones: [],
+  speakers: [],
   productsFetchError: false,
 };
 
@@ -35,7 +38,7 @@ export const ProductsProvider = ({ children }) => {
     try {
       const res = await axios.get(url);
       const products = res.data;
-      dispach({ type: PRODUCTS_FETCH_SUCCESS, payload: products });
+      dispach({ type: PRODUCTS_FETCH_SUCCESS, payload: products.data });
       console.log(products.data);
     } catch (error) {
       dispach({ type: PRODUCTS_FETCH_ERROR });

@@ -20,12 +20,22 @@ const products_reducer = (state, action) => {
     return { ...state, productIsLoading: true };
   }
   if (action.type === PRODUCTS_FETCH_SUCCESS) {
-    console.log({
+    const headphones = action.payload.filter(
+      (el) => el.category === "headphones"
+    );
+    const earphones = action.payload.filter(
+      (el) => el.category === "earphones"
+    );
+    const speakers = action.payload.filter((el) => el.category === "speakers");
+
+    return {
       ...state,
       products: action.payload,
       productIsLoading: false,
-    });
-    return { ...state, products: action.payload, productIsLoading: false };
+      headphones,
+      earphones,
+      speakers,
+    };
   }
   if (action.type === PRODUCTS_FETCH_ERROR) {
     return { ...state, productIsLoading: false, productsFetchError: true };
