@@ -129,6 +129,7 @@ const Wrapper = styled.li`
       width: 68.9rem;
     }
     .products-item-ct {
+      justify-content: center;
       gap: 5.2rem;
     }
 
@@ -149,7 +150,6 @@ const Wrapper = styled.li`
     }
     .btn-text-ct {
       padding: 0 5.9rem;
-      height: 47.4rem;
       gap: 3.2rem;
       justify-content: flex-start;
     }
