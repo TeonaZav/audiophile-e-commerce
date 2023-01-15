@@ -1,15 +1,13 @@
 import React from "react";
 import styled from "styled-components";
-import data from "../data.json";
+
 import ProdusctsItem from "./ProdusctsItem";
-function HeadphonesList(props) {
-  console.log(data.filter((el) => el.category === "headphones"));
-  const headphonesData = data.filter((el) => el.category === "headphones");
+function ProductList({ data }) {
   return (
     <Wrapper>
       <div>
         <ul>
-          {headphonesData.map((el, index) => {
+          {data.map((el, index) => {
             return <ProdusctsItem item={el} index={index} />;
           })}
         </ul>
@@ -26,4 +24,4 @@ const Wrapper = styled.div`
   @media (min-width: 90em) {
   }
 `;
-export default HeadphonesList;
+export default ProductList;
