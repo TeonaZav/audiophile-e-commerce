@@ -28,8 +28,8 @@ const Wrapper = styled.div`
   width: 100vw;
   height: 51.1rem;
   background-repeat: no-repeat;
-  background-size: contain;
-  background-position: bottom 6rem center;
+  background-size: cover;
+  background-position: bottom center;
   background-color: #191919;
   text-align: center;
   display: flex;
