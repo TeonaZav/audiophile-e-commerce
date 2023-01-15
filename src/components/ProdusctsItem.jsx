@@ -5,50 +5,46 @@ import { NavLink } from "react-router-dom";
 function ProdusctsItem({ item, index }) {
   return (
     <Wrapper>
-      <li key={item.id}>
-        <div
-          className={
-            index > 0 && index % 2 !== 0
-              ? "container products-item-ct reverse"
-              : "container products-item-ct"
-          }
-        >
-          <div className="container image-ct">
-            <picture>
-              <source
-                media="(min-width:1440px)"
-                srcSet={
-                  process.env.PUBLIC_URL + item.image.desktop.substring(1)
-                }
-              />
-              <source
-                media="(min-width:768px)"
-                srcSet={process.env.PUBLIC_URL + item.image.tablet.substring(1)}
-                alt="headphone"
-              />
+      <div
+        className={
+          index > 0 && index % 2 !== 0
+            ? "container products-item-ct reverse"
+            : "container products-item-ct"
+        }
+      >
+        <div className="container image-ct">
+          <picture>
+            <source
+              media="(min-width:1440px)"
+              srcSet={process.env.PUBLIC_URL + item.image.desktop.substring(1)}
+            />
+            <source
+              media="(min-width:768px)"
+              srcSet={process.env.PUBLIC_URL + item.image.tablet.substring(1)}
+              alt="headphone"
+            />
 
-              <img
-                src={process.env.PUBLIC_URL + item.image.mobile.substring(1)}
-                alt="headphone"
-              />
-            </picture>
-          </div>
-          <div className="container btn-text-ct">
-            <p className="subheading">{item.new ? "NEW PRODUCT" : null}</p>
-            <h2>{item.name}</h2>
-            <p>{item.description}</p>
-            <div>
-              <NavLink className="btn btn--full" to="/">
-                See Product
-              </NavLink>
-            </div>
+            <img
+              src={process.env.PUBLIC_URL + item.image.mobile.substring(1)}
+              alt="headphone"
+            />
+          </picture>
+        </div>
+        <div className="container btn-text-ct">
+          <p className="subheading">{item.new ? "NEW PRODUCT" : null}</p>
+          <h2>{item.name}</h2>
+          <p>{item.description}</p>
+          <div>
+            <NavLink className="btn btn--full" to="/">
+              See Product
+            </NavLink>
           </div>
         </div>
-      </li>
+      </div>
     </Wrapper>
   );
 }
-const Wrapper = styled.li`
+const Wrapper = styled.div`
   width: 100vw;
   height: 84.4rem;
   display: flex;

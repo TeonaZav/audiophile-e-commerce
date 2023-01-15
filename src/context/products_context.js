@@ -8,6 +8,9 @@ import {
   PRODUCTS_FETCH_START,
   PRODUCTS_FETCH_SUCCESS,
   PRODUCTS_FETCH_ERROR,
+  ITEM_FETCH_START,
+  ITEM_FETCH_SUCCESS,
+  ITEM_FETCH_ERROR,
 } from "../actions";
 
 const initialState = {
@@ -18,6 +21,9 @@ const initialState = {
   earphones: [],
   speakers: [],
   productsFetchError: false,
+  itemIsLoading: false,
+  itemFetchError: false,
+  item: [],
 };
 
 const ProductsContext = React.createContext();
@@ -44,8 +50,23 @@ export const ProductsProvider = ({ children }) => {
       dispach({ type: PRODUCTS_FETCH_ERROR });
     }
   };
+  /*================
+    get product by ID
+   =================*/
+  const getProduct = async (url, id) => {
+    dispach({ type: ITEM_FETCH_START });
+    try {
+      const res = await axios.get(`${url}/${id}`);
+      const item = res.data;
+      dispach({ type: ITEM_FETCH_SUCCESS, payload: item.data.product });
+      console.log(item.data.product);
+    } catch (error) {
+      dispach({ type: ITEM_FETCH_ERROR });
+    }
+  };
   useEffect(() => {
     getProducts(url);
+    getProduct(url, "63c3ba7d302b8600dafbf0ad");
   }, []);
   return (
     <ProductsContext.Provider value={{ ...state, openSidebar, closeSidebar }}>

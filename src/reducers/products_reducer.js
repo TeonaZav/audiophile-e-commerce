@@ -4,6 +4,9 @@ import {
   PRODUCTS_FETCH_START,
   PRODUCTS_FETCH_SUCCESS,
   PRODUCTS_FETCH_ERROR,
+  ITEM_FETCH_START,
+  ITEM_FETCH_SUCCESS,
+  ITEM_FETCH_ERROR,
 } from "../actions";
 
 const products_reducer = (state, action) => {
@@ -37,8 +40,18 @@ const products_reducer = (state, action) => {
       speakers,
     };
   }
-  if (action.type === PRODUCTS_FETCH_ERROR) {
-    return { ...state, productIsLoading: false, productsFetchError: true };
+  if (action.type === ITEM_FETCH_START) {
+    return { ...state, itemIsLoading: true };
+  }
+  if (action.type === ITEM_FETCH_ERROR) {
+    return { ...state, itemIsLoading: false, itemFetchError: true };
+  }
+  if (action.type === ITEM_FETCH_SUCCESS) {
+    return {
+      ...state,
+      item: action.payload,
+      itemIsLoading: false,
+    };
   }
   throw new Error(`No Matching "${action.type}" - action type`);
 };

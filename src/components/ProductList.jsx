@@ -6,19 +6,14 @@ function ProductList({ data }) {
   return (
     <Wrapper>
       <div>
-        <ul>
-          {data.map((el, index) => {
-            return <ProdusctsItem item={el} index={index} />;
-          })}
-        </ul>
+        {data.map((el, index) => {
+          return <ProdusctsItem key={el._id} item={el} index={index} />;
+        })}
       </div>
     </Wrapper>
   );
 }
 const Wrapper = styled.div`
-  ul {
-    list-style-type: none;
-  }
   @media (min-width: 48em) {
   }
   @media (min-width: 90em) {
