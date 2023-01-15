@@ -6,13 +6,15 @@ import ProductList from "../components/ProductList";
 import About from "../components/About";
 import Footer from "../components/sharedComponents/Footer";
 import data from "../data.json";
+import { useProductsContext } from "../context/products_context";
 function Headphones(props) {
   const headphonesData = data.filter((el) => el.category === "headphones");
+  const { headphones, productIsLoading } = useProductsContext();
   return (
     <div>
       <Header />
       <Category category={"headphones"} />
-      <ProductList data={headphonesData} />
+      <ProductList data={headphones} />
       <CategoryItems />
       <About />
       <Footer />
