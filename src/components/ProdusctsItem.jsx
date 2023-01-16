@@ -39,9 +39,12 @@ function ProdusctsItem({ item, index }) {
           <div>
             <NavLink
               className="btn btn--full"
-              to={"/all/" + item._id}
-              onClick={(e) => getProduct(url, item._id)}
+              // to={"/all/" + item._id}
+              to={"/all/" + item.id} //temporary
+              // onClick={(e) => getProduct(url, item._id)}
+              onClick={(e) => getProduct(item.id)}
             >
+              {console.log(item.id)}
               See Product
             </NavLink>
           </div>

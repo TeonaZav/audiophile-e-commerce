@@ -8,7 +8,7 @@ import Footer from "../components/sharedComponents/Footer";
 import ProductList from "../components/ProductList";
 import data from "../data.json";
 import { useProductsContext } from "../context/products_context";
-const speakerssData = data.filter((el) => el.category === "speakers");
+
 function Speakers() {
   const { speakers, productIsLoading } = useProductsContext();
   return (

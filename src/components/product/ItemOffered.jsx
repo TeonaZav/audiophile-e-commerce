@@ -9,7 +9,8 @@ function ItemOffered({ item, index }) {
   const [loading, setLoading] = useState(false);
   const getId = () => {
     const filtered = products.filter((el) => el.slug === item.slug);
-    setTo("/all/" + filtered[0]._id);
+    // setTo("/all/" + filtered[0]._id);
+    setTo("/all/" + filtered[0].id); //temporary
     setLoading(false);
   };
   useEffect(() => {

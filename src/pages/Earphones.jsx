@@ -10,7 +10,6 @@ import data from "../data.json";
 import { useProductsContext } from "../context/products_context";
 
 function Earphones(props) {
-  const earphonesData = data.filter((el) => el.category === "earphones");
   const { earphones, productIsLoading } = useProductsContext();
   return (
     <div>

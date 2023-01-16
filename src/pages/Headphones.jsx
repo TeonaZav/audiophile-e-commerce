@@ -9,7 +9,6 @@ import LoadingComponent from "../components/sharedComponents/LoadingComponent";
 import data from "../data.json";
 import { useProductsContext } from "../context/products_context";
 function Headphones(props) {
-  const headphonesData = data.filter((el) => el.category === "headphones");
   const { headphones, productIsLoading } = useProductsContext();
   return (
     <div>
@@ -21,7 +20,7 @@ function Headphones(props) {
       ) : (
         <ProductList data={headphones} />
       )}
-
+      <ProductList data={headphones} />
       <CategoryItems />
       <About />
       <Footer />

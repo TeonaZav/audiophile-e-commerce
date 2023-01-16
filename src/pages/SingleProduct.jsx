@@ -5,24 +5,32 @@ import Product from "../components/product/Product";
 import LoadingComponent from "../components/sharedComponents/LoadingComponent";
 import { useProductsContext } from "../context/products_context";
 function SingleProduct() {
-  const url = "http://localhost:5000/api/v1/products/all";
+  // const url = "http://localhost:5000/api/v1/products/all";
   const { id } = useParams();
-  const { itemIsLoading, item, getProduct, itemFetchError } =
+  console.log(id);
+  const { itemIsLoading, item, getProduct, itemFetchError, products } =
     useProductsContext();
+  console.log(id);
   useEffect(() => {
-    getProduct(url, id);
+    // getProduct(url, id);
+    if (id) {
+      getProduct(id); //temporary
+    } else {
+      console.log("hii");
+    }
   }, [id]);
 
   return (
     <>
-      <Header />
+      {/* <Header />
       {itemIsLoading ? (
         <LoadingComponent />
       ) : !item ? (
         "Error!"
       ) : (
         <Product item={item} />
-      )}
+      )} */}
+      <Product item={item} />
     </>
   );
 }

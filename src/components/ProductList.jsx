@@ -7,7 +7,10 @@ function ProductList({ data }) {
     <Wrapper>
       <div>
         {data.map((el, index) => {
-          return <ProdusctsItem key={el._id} item={el} index={index} />;
+          {
+            /* return <ProdusctsItem key={el._id} item={el} index={index} />; */
+          }
+          return <ProdusctsItem key={el.id} item={el} index={index} />;
         })}
       </div>
     </Wrapper>
