@@ -21,7 +21,8 @@ const Wrapper = styled.div`
   @media (min-width: 48em) {
     width: 68.9rem;
     flex-direction: row;
-    gap: 1.1rem;
+    gap: 0;
+    justify-content: space-between;
   }
   @media (min-width: 90em) {
     width: 111rem;

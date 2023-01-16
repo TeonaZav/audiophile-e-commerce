@@ -114,8 +114,7 @@ const Wrapper = styled.div`
   @media (min-width: 48em) {
     flex-direction: row;
     width: 69.8rem;
-    justify-content: space-between;
-
+    gap: 2rem;
     .image-1-2 {
       width: 27.7rem;
       height: 17.4rem;
@@ -130,7 +129,7 @@ const Wrapper = styled.div`
   @media (min-width: 90em) {
     width: 111rem;
     margin-bottom: 12rem;
-
+    gap: 3.2rem;
     .image-1-2 {
       width: 44.5rem;
       height: 28rem;
