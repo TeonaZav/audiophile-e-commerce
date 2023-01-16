@@ -8,11 +8,17 @@ import Footer from "../components/sharedComponents/Footer";
 import ProductList from "../components/ProductList";
 import { useProductsContext } from "../context/products_context";
 import { Scroll } from "../components/ScrollToTop";
+import { motion } from "framer-motion";
 function Earphones(props) {
   const { earphones, productIsLoading } = useProductsContext();
   return (
     <Scroll>
-      <div>
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        exit={{ opacity: 0 }}
+        transition={{ duration: 0.5 }}
+      >
         <Header />
         <Category category={"earphones"} />
         {productIsLoading ? (
@@ -24,7 +30,7 @@ function Earphones(props) {
         <CategoryItems />
         <About />
         <Footer />
-      </div>
+      </motion.div>
     </Scroll>
   );
 }

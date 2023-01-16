@@ -5,18 +5,24 @@ import About from "../components/sharedComponents/About";
 import Footer from "../components/sharedComponents/Footer";
 import CategoryItems from "../components/sharedComponents/CategoryItems";
 import HompageProducts from "../components/hompageComponents/HompageProducts";
+import { motion } from "framer-motion";
 import { Scroll } from "../components/ScrollToTop";
 function Home(props) {
   return (
     <Scroll>
-      <div>
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        exit={{ opacity: 0 }}
+        transition={{ duration: 0.5 }}
+      >
         <Header />
         <Hero />
         <CategoryItems />
         <HompageProducts />
         <About />
         <Footer />
-      </div>
+      </motion.div>
     </Scroll>
   );
 }

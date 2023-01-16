@@ -7,14 +7,19 @@ import About from "../components/sharedComponents/About";
 import Footer from "../components/sharedComponents/Footer";
 import ProductList from "../components/ProductList";
 import { Scroll } from "../components/ScrollToTop";
-import data from "../data.json";
+import { motion } from "framer-motion";
 import { useProductsContext } from "../context/products_context";
 
 function Speakers() {
   const { speakers, productIsLoading } = useProductsContext();
   return (
     <Scroll>
-      <div>
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        exit={{ opacity: 0 }}
+        transition={{ duration: 0.5 }}
+      >
         <Header />
         <Category category={"speakers"} />
         {productIsLoading ? (
@@ -26,7 +31,7 @@ function Speakers() {
         <CategoryItems />
         <About />
         <Footer />
-      </div>
+      </motion.div>
     </Scroll>
   );
 }

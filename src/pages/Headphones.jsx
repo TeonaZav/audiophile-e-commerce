@@ -7,12 +7,18 @@ import About from "../components/sharedComponents/About";
 import Footer from "../components/sharedComponents/Footer";
 import LoadingComponent from "../components/sharedComponents/LoadingComponent";
 import { Scroll } from "../components/ScrollToTop";
+import { motion } from "framer-motion";
 import { useProductsContext } from "../context/products_context";
 function Headphones(props) {
   const { headphones, productIsLoading } = useProductsContext();
   return (
     <Scroll>
-      <div>
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        exit={{ opacity: 0 }}
+        transition={{ duration: 0.5 }}
+      >
         <Header />
         <Category category={"headphones"} />
 
@@ -25,7 +31,7 @@ function Headphones(props) {
         <CategoryItems />
         <About />
         <Footer />
-      </div>
+      </motion.div>
     </Scroll>
   );
 }
