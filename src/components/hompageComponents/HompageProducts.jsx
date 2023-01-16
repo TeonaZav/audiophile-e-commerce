@@ -177,7 +177,7 @@ const Wrapper = styled.section`
   .hompage-product2-ct {
     height: 32rem;
     margin-bottom: 9.6rem;
-    background: url(${require("../images/image-speaker-zx7-mobile.jpg")});
+    background: url(${require("../../images/image-speaker-zx7-mobile.jpg")});
     background-repeat: no-repeat;
     background-position: center center;
     -webkit-background-size: cover;
@@ -255,7 +255,7 @@ const Wrapper = styled.section`
       }
     }
     .hompage-product2-ct {
-      background: url(${require("../images/image-speaker-zx7-tablet.jpg")});
+      background: url(${require("../../images/image-speaker-zx7-tablet.jpg")});
       background-repeat: no-repeat;
       background-position: center center;
       -webkit-background-size: cover;
@@ -314,7 +314,7 @@ const Wrapper = styled.section`
       margin-bottom: 4.8rem;
     }
     .hompage-product2-ct {
-      background: url(${require("../images/image-speaker-zx7-desktop.jpg")});
+      background: url(${require("../../images/image-speaker-zx7-desktop.jpg")});
       background-repeat: no-repeat;
       background-position: center center;
       -webkit-background-size: cover;

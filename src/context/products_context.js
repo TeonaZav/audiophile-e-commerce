@@ -23,7 +23,7 @@ const initialState = {
   productsFetchError: false,
   itemIsLoading: false,
   itemFetchError: false,
-  item: [],
+  item: {},
 };
 
 const ProductsContext = React.createContext();
@@ -66,10 +66,11 @@ export const ProductsProvider = ({ children }) => {
   };
   useEffect(() => {
     getProducts(url);
-    getProduct(url, "63c3ba7d302b8600dafbf0ad");
   }, []);
   return (
-    <ProductsContext.Provider value={{ ...state, openSidebar, closeSidebar }}>
+    <ProductsContext.Provider
+      value={{ ...state, openSidebar, closeSidebar, getProduct }}
+    >
       {children}
     </ProductsContext.Provider>
   );

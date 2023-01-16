@@ -20,7 +20,13 @@ input:-webkit-autofill:hover,
 input:-webkit-autofill:focus,
 input:-webkit-autofill:active {
   transition: background-color 1000s;
-  -webkit-text-fill-color: rgb(255, 255, 255) !important;
+  -webkit-text-fill-color: var(--main-bg-color) !important;
+}
+:root {
+  --main-bg-color: #f8f8f8;
+  --card-color: #f1f1f1;
+  --pale-black-5: hwb(0 0% 100% / 0.5);
+  --pale-white-75: rgba(255, 255, 255, 0.75);
 }
 body {
   margin: 0 auto;
@@ -30,15 +36,10 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  background-color: #fcfcfc;
+  background-color: #f8f8f8;
   overflow-x: hidden !important;
 }
-:root {
-  --main-bg-color: #fcfcfc;
-  --card-color: #f1f1f1;
-  --pale-black-5: hwb(0 0% 100% / 0.5);
-  --pale-white-75: rgba(255, 255, 255, 0.75);
-}
+
 .App {
   width: 100vw;
   margin: 0 auto;

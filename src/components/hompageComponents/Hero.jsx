@@ -35,7 +35,7 @@ const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
-  background-image: url(${require("../images/image-header-mobile.jpg")});
+  background-image: url(${require("../../images/image-header-mobile.jpg")});
   .hero-ct {
     height: 100%;
     width: 100%;
@@ -90,7 +90,7 @@ const Wrapper = styled.div`
   }
   @media (min-width: 48em) {
     height: 64rem;
-    background-image: url(${require("../images/image-header-tablet.jpg")});
+    background-image: url(${require("../../images/image-header-tablet.jpg")});
     background-repeat: no-repeat;
     background-size: contain;
     background-position: bottom 4.5rem center;
@@ -107,7 +107,7 @@ const Wrapper = styled.div`
     }
   }
   @media (min-width: 90em) {
-    background-image: url(${require("../images/image-hero-desktop.jpg")});
+    background-image: url(${require("../../images/image-hero-desktop.jpg")});
     height: 64rem;
     .hero-ct {
       width: 77%;

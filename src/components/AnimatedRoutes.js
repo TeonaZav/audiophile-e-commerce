@@ -19,7 +19,7 @@ function AnimatedRoutes() {
         <Route path="/headphones" element={<Headphones />} />
         <Route path="/speakers" element={<Speakers />} />
         <Route path="/products" element={<Products />} />
-        <Route path="/products:id" element={<SingleProduct />} />
+        <Route path="/all/:id" element={<SingleProduct />} />
         <Route path="/checkout" element={<Checkout />} />
       </Routes>
     </AnimatePresence>
