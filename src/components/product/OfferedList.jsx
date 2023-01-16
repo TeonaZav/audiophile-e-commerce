@@ -17,6 +17,7 @@ const Wrapper = styled.div`
   justify-content: center;
   align-items: center;
   gap: 3.2rem;
+  margin-bottom: 8.8rem;
   @media (min-width: 48em) {
     width: 68.9rem;
     flex-direction: row;
@@ -25,6 +26,7 @@ const Wrapper = styled.div`
   @media (min-width: 90em) {
     width: 111rem;
     gap: 3rem;
+    margin-bottom: 12rem;
   }
 `;
 export default OfferedList;

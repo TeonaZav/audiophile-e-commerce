@@ -40,19 +40,23 @@ function Product({ item }) {
                 <AddToCart />
               </div>
             </div>
-            <div className="features">
-              <h2>FEATURES</h2>
-              <p>{item.features}</p>
+            <div className="features-includes-ct">
+              <div className="features">
+                <h2>FEATURES</h2>
+                <p>{item.features}</p>
+              </div>
+              <div className="includes">
+                <h2>in the box</h2>
+                <ul>
+                  {item.includes.map((el) => {
+                    return (
+                      <IncludesItems quantity={el.quantity} name={el.item} />
+                    );
+                  })}
+                </ul>
+              </div>
             </div>
-            <div>
-              <ul>
-                {item.includes.map((el) => {
-                  return (
-                    <IncludesItems quantity={el.quantity} name={el.item} />
-                  );
-                })}
-              </ul>
-            </div>
+
             <OfferedList data={item.others} />
           </div>
         </Wrapper>
@@ -67,6 +71,7 @@ const Wrapper = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  margin-top: 1.6rem;
   .products-item-ct {
     display: flex;
     flex-direction: column;
@@ -136,10 +141,19 @@ const Wrapper = styled.div`
     gap: 2.4rem;
     margin-bottom: 8.8rem;
   }
+  .features-includes-ct {
+    margin-bottom: 8.8rem;
+  }
+  .includes {
+    display: flex;
+    flex-direction: column;
+    gap: 2.4rem;
+  }
   @media (min-width: 48em) {
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    margin-top: 3.3rem;
     .container {
       width: 68.9rem;
     }
@@ -165,8 +179,14 @@ const Wrapper = styled.div`
       width: 68.9rem;
       gap: 3.2rem;
     }
+    .includes {
+      width: 68.9rem;
+      flex-direction: row;
+      justify-content: space-between;
+    }
   }
   @media (min-width: 90em) {
+    margin-top: 7.9rem;
     .container {
       width: 111rem;
     }
@@ -198,8 +218,20 @@ const Wrapper = styled.div`
       padding: 0;
     }
     .features {
-      width: 111rem;
+      width: 63.5rem;
+      margin-bottom: 0rem;
+    }
+    .features-includes-ct {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
       margin-bottom: 12rem;
+    }
+    .includes {
+      flex-direction: column;
+      justify-content: center;
+      width: 35rem;
+      gap: 3.2rem;
     }
   }
 `;
