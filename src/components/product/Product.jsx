@@ -3,7 +3,7 @@ import AddToCart from "./AddToCart";
 import IncludesItems from "./IncludesItems";
 import ProductGallery from "./ProductGallery";
 import OfferedList from "./OfferedList";
-
+import BtnGoBack from "./BtnGoBack";
 function Product({ item }) {
   return (
     <div>
@@ -11,6 +11,7 @@ function Product({ item }) {
         <Wrapper>
           <div>
             <div className="container products-item-ct">
+              <BtnGoBack />
               <div className="container image-ct">
                 <picture>
                   <source
@@ -77,18 +78,18 @@ const Wrapper = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  margin-top: 1.6rem;
+  margin-top: 6.5rem;
   .products-item-ct {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     gap: 3.2rem;
     margin-bottom: 8.8rem;
+    position: relative;
   }
   .container {
     width: 32.7rem;
     border-radius: 0.8rem;
-    overflow: hidden;
   }
   h2 {
     letter-spacing: 2px;
@@ -159,7 +160,7 @@ const Wrapper = styled.div`
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    margin-top: 3.3rem;
+    margin-top: 8.2rem;
     .container {
       width: 68.9rem;
     }
@@ -192,7 +193,7 @@ const Wrapper = styled.div`
     }
   }
   @media (min-width: 90em) {
-    margin-top: 7.9rem;
+    margin-top: 16rem;
     .container {
       width: 111rem;
     }
