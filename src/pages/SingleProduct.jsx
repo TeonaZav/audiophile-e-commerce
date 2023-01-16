@@ -3,6 +3,7 @@ import { useParams } from "react-router-dom";
 import Header from "../components/sharedComponents/Header";
 import Product from "../components/product/Product";
 import LoadingComponent from "../components/sharedComponents/LoadingComponent";
+import { Scroll } from "../components/ScrollToTop";
 import { useProductsContext } from "../context/products_context";
 function SingleProduct() {
   // const url = "http://localhost:5000/api/v1/products/all";
@@ -21,8 +22,9 @@ function SingleProduct() {
   }, [id]);
 
   return (
-    <>
-      {/* <Header />
+    <Scroll>
+      <>
+        {/* <Header />
       {itemIsLoading ? (
         <LoadingComponent />
       ) : !item ? (
@@ -30,8 +32,9 @@ function SingleProduct() {
       ) : (
         <Product item={item} />
       )} */}
-      <Product item={item} />
-    </>
+        <Product item={item} />
+      </>
+    </Scroll>
   );
 }
 

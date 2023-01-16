@@ -6,25 +6,28 @@ import LoadingComponent from "../components/sharedComponents/LoadingComponent";
 import About from "../components/sharedComponents/About";
 import Footer from "../components/sharedComponents/Footer";
 import ProductList from "../components/ProductList";
+import { Scroll } from "../components/ScrollToTop";
 import data from "../data.json";
 import { useProductsContext } from "../context/products_context";
 
 function Speakers() {
   const { speakers, productIsLoading } = useProductsContext();
   return (
-    <div>
-      <Header />
-      <Category category={"speakers"} />
-      {productIsLoading ? (
-        <LoadingComponent />
-      ) : (
-        <ProductList data={speakers} />
-      )}
+    <Scroll>
+      <div>
+        <Header />
+        <Category category={"speakers"} />
+        {productIsLoading ? (
+          <LoadingComponent />
+        ) : (
+          <ProductList data={speakers} />
+        )}
 
-      <CategoryItems />
-      <About />
-      <Footer />
-    </div>
+        <CategoryItems />
+        <About />
+        <Footer />
+      </div>
+    </Scroll>
   );
 }
 
