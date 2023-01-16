@@ -1,7 +1,9 @@
 import styled from "styled-components";
 import AddToCart from "./AddToCart";
 import IncludesItems from "./IncludesItems";
+import ProductGallery from "./ProductGallery";
 import OfferedList from "./OfferedList";
+
 function Product({ item }) {
   return (
     <div>
@@ -60,7 +62,7 @@ function Product({ item }) {
                 </ul>
               </div>
             </div>
-
+            <ProductGallery item={item} />
             <OfferedList data={item.others} />
           </div>
         </Wrapper>
