@@ -1,40 +1,52 @@
 import styled from "styled-components";
 import AddToCart from "./AddToCart";
+import IncludesItems from "./IncludesItems";
 function Product({ item }) {
   return (
     <div>
       {item && JSON.stringify(item) !== "{}" ? (
         <Wrapper>
-          <div className="container products-item-ct">
-            <div className="container image-ct">
-              <picture>
-                <source
-                  media="(min-width:1440px)"
-                  srcSet={
-                    process.env.PUBLIC_URL + item.image.desktop.substring(1)
-                  }
-                />
-                <source
-                  media="(min-width:768px)"
-                  srcSet={
-                    process.env.PUBLIC_URL + item.image.tablet.substring(1)
-                  }
-                  alt="headphone"
-                />
+          <div>
+            <div className="container products-item-ct">
+              <div className="container image-ct">
+                <picture>
+                  <source
+                    media="(min-width:1440px)"
+                    srcSet={
+                      process.env.PUBLIC_URL + item.image.desktop.substring(1)
+                    }
+                  />
+                  <source
+                    media="(min-width:768px)"
+                    srcSet={
+                      process.env.PUBLIC_URL + item.image.tablet.substring(1)
+                    }
+                    alt="headphone"
+                  />
 
-                <img
-                  src={process.env.PUBLIC_URL + item.image.mobile.substring(1)}
-                  alt="headphone"
-                />
-              </picture>
-            </div>
-            <div className="container btn-text-ct">
-              <p className="subheading">{item.new ? "NEW PRODUCT" : null}</p>
-              <h2>{item.name}</h2>
-              <p>{item.description}</p>
-              <div>
+                  <img
+                    src={
+                      process.env.PUBLIC_URL + item.image.mobile.substring(1)
+                    }
+                    alt="headphone"
+                  />
+                </picture>
+              </div>
+              <div className="container btn-text-ct">
+                <p className="subheading">{item.new ? "NEW PRODUCT" : null}</p>
+                <h2>{item.name}</h2>
+                <p>{item.description}</p>
                 <AddToCart />
               </div>
+            </div>
+            <div>
+              <ul>
+                {item.includes.map((el) => {
+                  return (
+                    <IncludesItems quantity={el.quantity} name={el.item} />
+                  );
+                })}
+              </ul>
             </div>
           </div>
         </Wrapper>
@@ -42,9 +54,9 @@ function Product({ item }) {
     </div>
   );
 }
-const Wrapper = styled.li`
+const Wrapper = styled.div`
   width: 100vw;
-  min-height: 84.4rem;
+  min-height: 100vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -54,6 +66,7 @@ const Wrapper = styled.li`
     display: flex;
     flex-direction: column;
     justify-content: center;
+    margin-bottom: 8.8rem;
   }
   .container {
     width: 32.7rem;
@@ -61,16 +74,10 @@ const Wrapper = styled.li`
     overflow: hidden;
   }
   h2 {
-    font-weight: 700;
-    font-size: 2.8rem;
-    line-height: 3.8rem;
     letter-spacing: 2px;
     color: #000000;
   }
   p {
-    font-weight: 500;
-    font-size: 1.5rem;
-    line-height: 2.5rem;
     opacity: 0.75;
     color: var(--pale-black-5);
   }
@@ -106,7 +113,18 @@ const Wrapper = styled.li`
     justify-content: center;
     gap: 2.4rem;
   }
+  ul {
+    list-style-type: none;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    gap: 1rem;
+  }
   @media (min-width: 48em) {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
     .container {
       width: 68.9rem;
     }
@@ -115,6 +133,7 @@ const Wrapper = styled.li`
       justify-content: space-between;
       justify-content: center;
       gap: 6.9rem;
+      margin-bottom: 12rem;
     }
     .image-ct {
       width: 28.1rem;
@@ -130,7 +149,6 @@ const Wrapper = styled.li`
     }
   }
   @media (min-width: 90em) {
-    min-height: 72rem;
     .container {
       width: 111rem;
     }

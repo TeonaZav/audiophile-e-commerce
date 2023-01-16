@@ -72,16 +72,10 @@ const Wrapper = styled.div`
     overflow: hidden;
   }
   h2 {
-    font-weight: 700;
-    font-size: 2.8rem;
-    line-height: 3.8rem;
     letter-spacing: 2px;
     color: #000000;
   }
   p {
-    font-weight: 500;
-    font-size: 1.5rem;
-    line-height: 2.5rem;
     opacity: 0.75;
     color: var(--pale-black-5);
   }

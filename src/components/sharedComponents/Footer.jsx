@@ -133,9 +133,6 @@ const Wrapper = styled.footer`
     gap: 4.8rem;
   }
   p {
-    font-weight: 500;
-    font-size: 1.5rem;
-    line-height: 2.5rem;
     color: #ffffff;
     opacity: 0.5;
   }

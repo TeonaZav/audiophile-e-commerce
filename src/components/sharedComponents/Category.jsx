@@ -21,12 +21,8 @@ const Wrapper = styled.div`
     margin: 0 auto;
   }
   h2 {
-    font-weight: 700;
-    font-size: 2.8rem;
-    line-height: 3.8rem;
     text-align: center;
     letter-spacing: 2px;
-    text-transform: uppercase;
     color: #ffffff;
   }
   @media (min-width: 48em) {

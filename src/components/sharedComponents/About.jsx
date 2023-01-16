@@ -93,19 +93,6 @@ const Wrapper = styled.div`
     gap: 3.2rem;
   }
 
-  h2 {
-    font-weight: 700;
-    font-size: 2.8rem;
-    line-height: 3.8rem;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-  }
-  p {
-    font-weight: 500;
-    font-size: 1.5rem;
-    line-height: 2.5rem;
-    opacity: 0.5;
-  }
   .text-emp {
     color: #d87d4a;
   }
