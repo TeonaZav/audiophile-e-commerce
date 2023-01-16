@@ -39,6 +39,10 @@ function Product({ item }) {
                 <AddToCart />
               </div>
             </div>
+            <div className="features">
+              <h2>FEATURES</h2>
+              <p>{item.features}</p>
+            </div>
             <div>
               <ul>
                 {item.includes.map((el) => {
@@ -62,10 +66,10 @@ const Wrapper = styled.div`
   justify-content: center;
   align-items: center;
   .products-item-ct {
-    gap: 3.2rem;
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: space-between;
+    gap: 3.2rem;
     margin-bottom: 8.8rem;
   }
   .container {
@@ -121,6 +125,15 @@ const Wrapper = styled.div`
     align-items: flex-start;
     gap: 1rem;
   }
+  .features {
+    width: 32.7rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-self: center;
+    gap: 2.4rem;
+    margin-bottom: 8.8rem;
+  }
   @media (min-width: 48em) {
     flex-direction: column;
     justify-content: center;
@@ -131,9 +144,8 @@ const Wrapper = styled.div`
     .products-item-ct {
       flex-direction: row;
       justify-content: space-between;
-      justify-content: center;
-      gap: 6.9rem;
       margin-bottom: 12rem;
+      gap: 6.95rem;
     }
     .image-ct {
       width: 28.1rem;
@@ -147,15 +159,17 @@ const Wrapper = styled.div`
       width: 33.9rem;
       gap: 3.2rem;
     }
+    .features {
+      width: 68.9rem;
+      gap: 3.2rem;
+    }
   }
   @media (min-width: 90em) {
     .container {
       width: 111rem;
     }
     .products-item-ct {
-      flex-direction: row;
-      justify-content: space-between;
-      gap: 0rem;
+      gap: 12.5rem;
     }
     h2 {
       font-weight: 700;
@@ -168,9 +182,10 @@ const Wrapper = styled.div`
       width: 54rem;
       height: 56rem;
       text-align: center;
+      background-color: var(--card-color);
     }
     .image-ct img {
-      width: 95%;
+      width: 100%;
       height: auto;
       justify-self: center;
       align-self: center;
@@ -179,6 +194,10 @@ const Wrapper = styled.div`
       width: 44.5rem;
       height: 56rem;
       padding: 0;
+    }
+    .features {
+      width: 111rem;
+      margin-bottom: 12rem;
     }
   }
 `;
