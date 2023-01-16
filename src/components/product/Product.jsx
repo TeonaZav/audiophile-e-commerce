@@ -48,9 +48,13 @@ function Product({ item }) {
               <div className="includes">
                 <h2>in the box</h2>
                 <ul>
-                  {item.includes.map((el) => {
+                  {item.includes.map((el, index) => {
                     return (
-                      <IncludesItems quantity={el.quantity} name={el.item} />
+                      <IncludesItems
+                        quantity={el.quantity}
+                        name={el.item}
+                        key={index}
+                      />
                     );
                   })}
                 </ul>

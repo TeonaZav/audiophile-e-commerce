@@ -1,9 +1,24 @@
+import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import { NavLink } from "react-router-dom";
 import { useProductsContext } from "../../context/products_context";
 function ItemOffered({ item, index }) {
-  const { getProduct } = useProductsContext();
+  const { products } = useProductsContext();
   const url = "http://localhost:5000/api/v1/products/all";
+  const [to, setTo] = useState(`/all/`);
+  const [loading, setLoading] = useState(false);
+  const getId = () => {
+    const filtered = products.filter((el) => el.slug === item.slug);
+    setTo("/all/" + filtered[0]._id);
+    setLoading(false);
+  };
+  useEffect(() => {
+    if (products.length > 0 && item && JSON.stringify(item) !== "{}") {
+      getId();
+    } else {
+      setLoading(true);
+    }
+  }, [item, products]);
   return (
     <Wrapper>
       <div className="item-ct">
@@ -27,15 +42,15 @@ function ItemOffered({ item, index }) {
         </div>
 
         <h3>{item.name}</h3>
-        <div>
-          <NavLink
-            className="btn btn--full"
-            to={"/all/" + item._id}
-            onClick={(e) => getProduct(url, item._id)}
-          >
-            See Product
-          </NavLink>
-        </div>
+        {loading ? (
+          <div className="btn btn--full">See Product</div>
+        ) : (
+          <div>
+            <NavLink className="btn btn--full" to={to}>
+              See Product
+            </NavLink>
+          </div>
+        )}
       </div>
     </Wrapper>
   );

@@ -5,7 +5,7 @@ function OfferedList({ data }) {
   return (
     <Wrapper>
       {data.map((el, index) => {
-        return <ItemOffered key={el._id} item={el} index={index} />;
+        return <ItemOffered key={index} item={el} index={index} />;
       })}
     </Wrapper>
   );
