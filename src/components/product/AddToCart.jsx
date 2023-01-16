@@ -4,9 +4,27 @@ import { NavLink } from "react-router-dom";
 import ProductAmountButton from "./ProductAmountButton";
 function AddToCart(props) {
   const [quantity, setQuantity] = useState(1);
+  const increaseQ = () => {
+    setQuantity((before) => {
+      return before + 1;
+    });
+  };
+  const decreaseQ = () => {
+    setQuantity((before) => {
+      if (before > 1) {
+        return before - 1;
+      } else {
+        return before;
+      }
+    });
+  };
   return (
     <Wrapper>
-      <ProductAmountButton />
+      <ProductAmountButton
+        quantity={quantity}
+        increaseQ={increaseQ}
+        decreaseQ={decreaseQ}
+      />
       <div>
         <NavLink className="btn btn--full" to="/">
           ADD TO CART

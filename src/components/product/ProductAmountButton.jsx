@@ -2,13 +2,18 @@ import styled from "styled-components";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPlus, faMinus } from "@fortawesome/free-solid-svg-icons";
 
-const ProductAmountButton = () => {
+const ProductAmountButton = ({ decreaseQ, increaseQ, quantity }) => {
   return (
     <Wrapper>
       <button>
-        <FontAwesomeIcon className="controls" icon={faMinus} />
-        <p>1</p>
-        <FontAwesomeIcon className="controls" icon={faPlus} />
+        <div onClick={decreaseQ}>
+          <FontAwesomeIcon className="controls" icon={faMinus} />
+        </div>
+
+        <p>{quantity}</p>
+        <div onClick={increaseQ}>
+          <FontAwesomeIcon className="controls" icon={faPlus} />
+        </div>
       </button>
     </Wrapper>
   );
@@ -18,7 +23,6 @@ const Wrapper = styled.div`
   width: 12rem;
   height: 4.8rem;
   background-color: #f1f1f1;
-  padding: 1.5rem;
 
   button {
     background: transparent;
@@ -42,8 +46,16 @@ const Wrapper = styled.div`
   .controls {
     color: var(--pale-black-25);
   }
-  .controls:hover,
-  .controls:active {
+
+  button div {
+    width: 4rem;
+    height: 4rem;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+  }
+  button div:hover .controls {
     color: #d87d4a;
   }
 `;
