@@ -1,7 +1,5 @@
-import React from "react";
 import styled from "styled-components";
-import { NavLink } from "react-router-dom";
-
+import AddToCart from "./AddToCart";
 function Product({ item }) {
   return (
     <div>
@@ -35,9 +33,7 @@ function Product({ item }) {
               <h2>{item.name}</h2>
               <p>{item.description}</p>
               <div>
-                <NavLink className="btn btn--full" to="/">
-                  ADD TO CART
-                </NavLink>
+                <AddToCart />
               </div>
             </div>
           </div>
@@ -48,7 +44,7 @@ function Product({ item }) {
 }
 const Wrapper = styled.li`
   width: 100vw;
-  height: 84.4rem;
+  min-height: 84.4rem;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -86,16 +82,7 @@ const Wrapper = styled.li`
     letter-spacing: 1rem;
     text-transform: uppercase;
   }
-  .btn--full:link,
-  .btn--full:visited {
-    background-color: #d87d4a;
-    color: #fff;
-  }
-  .btn--full:hover,
-  .btn--full:active {
-    background-color: #fbaf85;
-    color: #fff;
-  }
+
   .image-ct {
     margin: 0 auto;
     width: 100%;
@@ -143,7 +130,7 @@ const Wrapper = styled.li`
     }
   }
   @media (min-width: 90em) {
-    height: 72rem;
+    min-height: 72rem;
     .container {
       width: 111rem;
     }

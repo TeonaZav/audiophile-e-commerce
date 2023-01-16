@@ -26,6 +26,7 @@ input:-webkit-autofill:active {
   --main-bg-color: #f8f8f8;
   --card-color: #f1f1f1;
   --pale-black-5: hwb(0 0% 100% / 0.5);
+  --pale-black-25: hwb(0 0% 100% / 0.25);
   --pale-white-75: rgba(255, 255, 255, 0.75);
 }
 body {
