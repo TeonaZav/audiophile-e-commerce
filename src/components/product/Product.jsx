@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import AddToCart from "./AddToCart";
 import IncludesItems from "./IncludesItems";
+import OfferedList from "./OfferedList";
 function Product({ item }) {
   return (
     <div>
@@ -52,6 +53,7 @@ function Product({ item }) {
                 })}
               </ul>
             </div>
+            <OfferedList data={item.others} />
           </div>
         </Wrapper>
       ) : null}
