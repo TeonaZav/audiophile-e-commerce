@@ -2,7 +2,11 @@ import React, { useState } from "react";
 import styled from "styled-components";
 import { NavLink } from "react-router-dom";
 import ProductAmountButton from "./ProductAmountButton";
+import { useProductsContext } from "../../context/products_context";
+import { useCartContext } from "../../context/cart_context";
 function AddToCart(props) {
+  const { addToCart } = useCartContext();
+  const { item } = useProductsContext();
   const [quantity, setQuantity] = useState(1);
   const increaseQ = () => {
     setQuantity((before) => {
@@ -26,7 +30,11 @@ function AddToCart(props) {
         decreaseQ={decreaseQ}
       />
       <div>
-        <NavLink className="btn btn--full" to="/">
+        <NavLink
+          className="btn btn--full"
+          to="/"
+          onClick={(e) => addToCart(item.id, quantity, item)}
+        >
           ADD TO CART
         </NavLink>
       </div>

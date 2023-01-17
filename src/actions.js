@@ -1,9 +1,9 @@
 //============cart==========//
 export const ADD_TO_CART = "ADD_TO_CART";
-export const TOGGLE_CART_ITEM_QUANTITY = "TOGGLE_CART_ITEM_AMOUNT";
+export const TOGGLE_CART_ITEM_QUANTITY = "TOGGLE_CART_ITEM_QUANTITY";
 export const REMOVE_CART_ITEM = "REMOVE_CART_ITEM";
 export const CLEAR_CART = "CLEAR_CART";
-export const COUNT_TOTALS = "COUNT_CART_TOTALS";
+export const COUNT_TOTALS = "COUNT_TOTALS";
 //============sidebar==========//
 export const SIDEBAR_OPEN = "SIDEBAR_OPEN";
 export const SIDEBAR_CLOSE = "SIDEBAR_CLOSE";

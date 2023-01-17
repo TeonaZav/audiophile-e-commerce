@@ -7,11 +7,13 @@ import BtnGoBack from "../components/product/BtnGoBack";
 import { Scroll } from "../components/ScrollToTop";
 import { motion } from "framer-motion";
 import { useProductsContext } from "../context/products_context";
+import { useCartContext } from "../context/cart_context";
 function SingleProduct() {
   // const url = "http://localhost:5000/api/v1/products/all";
   const { id } = useParams();
   const { itemIsLoading, item, getProduct, itemFetchError, products } =
     useProductsContext();
+
   console.log(id);
   useEffect(() => {
     // getProduct(url, id);
