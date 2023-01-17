@@ -4,6 +4,7 @@ import IncludesItems from "./IncludesItems";
 import ProductGallery from "./ProductGallery";
 import OfferedList from "./OfferedList";
 import BtnGoBack from "./BtnGoBack";
+import { PriceFormatter } from "../../utils/HelperFunctions";
 function Product({ item }) {
   return (
     <div>
@@ -40,6 +41,7 @@ function Product({ item }) {
                 <p className="subheading">{item.new ? "NEW PRODUCT" : null}</p>
                 <h2>{item.name}</h2>
                 <p>{item.description}</p>
+                <p className="price"> {PriceFormatter(item.price)}</p>
                 <AddToCart />
               </div>
             </div>
@@ -155,6 +157,12 @@ const Wrapper = styled.div`
     display: flex;
     flex-direction: column;
     gap: 2.4rem;
+  }
+  .price {
+    color: #000000;
+    font-weight: 700;
+    font-size: 1.8rem;
+    line-height: 2.5rem;
   }
   @media (min-width: 48em) {
     flex-direction: column;
