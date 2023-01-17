@@ -4,7 +4,7 @@ import { faPlus, faMinus } from "@fortawesome/free-solid-svg-icons";
 
 const ProductAmountButton = ({ decreaseQ, increaseQ, quantity }) => {
   return (
-    <Wrapper>
+    <Wrapper className="amount-controls-btn">
       <button>
         <div onClick={decreaseQ}>
           <FontAwesomeIcon className="controls" icon={faMinus} />
@@ -20,10 +20,8 @@ const ProductAmountButton = ({ decreaseQ, increaseQ, quantity }) => {
 };
 
 const Wrapper = styled.div`
-  width: 12rem;
-  height: 4.8rem;
   background-color: #f1f1f1;
-
+  border-radius: 0.3rem;
   button {
     background: transparent;
     border-color: transparent;
@@ -44,7 +42,7 @@ const Wrapper = styled.div`
     line-height: 1.8rem;
   }
   .controls {
-    color: var(--pale-black-25);
+    color: var(--pale-black-5);
   }
 
   button div {

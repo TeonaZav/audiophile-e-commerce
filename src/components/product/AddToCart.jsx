@@ -28,15 +28,15 @@ function AddToCart(props) {
         quantity={quantity}
         increaseQ={increaseQ}
         decreaseQ={decreaseQ}
+        className="amount-controls-btn"
       />
       <div>
-        <NavLink
+        <button
           className="btn btn--full"
-          to="/"
           onClick={(e) => addToCart(item.id, quantity, item)}
         >
           ADD TO CART
-        </NavLink>
+        </button>
       </div>
     </Wrapper>
   );
@@ -55,6 +55,10 @@ const Wrapper = styled.div`
   .btn--full:active {
     background-color: #fbaf85;
     color: #fff;
+  }
+  .amount-controls-btn {
+    width: 12rem;
+    height: 4.8rem;
   }
 `;
 

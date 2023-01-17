@@ -2,13 +2,17 @@ import React, { useState, useContext } from "react";
 import styled from "styled-components";
 import Navbar from "../Navbar";
 import MobileNavIcon from "../icons/MobileNavIcon";
+import CartModal from "../cart/CartModal";
 import { NavLink } from "react-router-dom";
 import { useProductsContext } from "../../context/products_context";
+import { useCartContext } from "../../context/cart_context";
 function Header() {
   const { menuIsClose, openSidebar, closeSidebar } = useProductsContext();
+  const { modalIsOpen, openModal, closeModal } = useCartContext();
   return (
     <Wrapper>
       <header className="header nav-open">
+        <CartModal />
         <div className="header-ct">
           <div className="logo-nav-container">
             <div
@@ -33,7 +37,10 @@ function Header() {
             </nav>
           </div>
           <div></div>
-          <div className="cart-icon-wrap">
+          <div
+            className="cart-icon-wrap"
+            onClick={modalIsOpen ? closeModal : openModal}
+          >
             <span
               className="cart-product-number"
               style={{ display: "inline-block" }}
