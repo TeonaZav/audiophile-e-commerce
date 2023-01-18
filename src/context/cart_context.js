@@ -47,6 +47,9 @@ export const CartProvider = ({ children }) => {
   const clearCard = () => {
     dispach({ type: CLEAR_CART });
   };
+  const toggleQuantity = (id, value) => {
+    dispach({ type: TOGGLE_CART_ITEM_QUANTITY, payload: { id, value } });
+  };
   useEffect(() => {
     localStorage.setItem("cart", JSON.stringify(state.cart));
   }, [state.cart]);
@@ -59,6 +62,7 @@ export const CartProvider = ({ children }) => {
         closeModal,
         removeItem,
         clearCard,
+        toggleQuantity,
       }}
     >
       {children}

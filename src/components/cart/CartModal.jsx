@@ -15,11 +15,13 @@ function CartModal({ showModal, setShowModal }) {
           ? cart.map((item) => {
               return (
                 <CartItem
-                  image={item.image}
                   key={item.id}
+                  id={item.id}
+                  image={item.image}
                   name={item.name}
                   price={item.price}
                   quantity={item.quantity}
+                  item={item}
                 />
               );
             })

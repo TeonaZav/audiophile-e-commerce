@@ -1,15 +1,21 @@
-import React from "react";
+import React, { useState } from "react";
 import { useCartContext } from "../../context/cart_context";
 import styled from "styled-components";
 import { PriceFormatter } from "../../utils/HelperFunctions";
 import ProductAmountButton from "../product/ProductAmountButton";
-function CartItem({ image, name, price, quantity }) {
-  const { cart, cartTotal, totalItems, shipping } = useCartContext();
+function CartItem({ id, image, name, price, quantity, item }) {
+  const { cart, cartTotal, totalItems, removeItem, toggleQuantity } =
+    useCartContext();
+
   const increaseCardQuantity = () => {
-    console.log();
+    toggleQuantity(id, "increase");
   };
   const decreaseCardQuantity = () => {
-    console.log();
+    if (quantity === 1) {
+      removeItem(id);
+    } else {
+      toggleQuantity(id, "decrease");
+    }
   };
   return (
     <Wrapper>
