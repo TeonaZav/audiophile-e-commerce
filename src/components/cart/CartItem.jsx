@@ -5,6 +5,12 @@ import { PriceFormatter } from "../../utils/HelperFunctions";
 import ProductAmountButton from "../product/ProductAmountButton";
 function CartItem({ image, name, price, quantity }) {
   const { cart, cartTotal, totalItems, shipping } = useCartContext();
+  const increaseCardQuantity = () => {
+    console.log();
+  };
+  const decreaseCardQuantity = () => {
+    console.log();
+  };
   return (
     <Wrapper>
       <div className="cart-image">
@@ -15,6 +21,8 @@ function CartItem({ image, name, price, quantity }) {
         <p className="price">{PriceFormatter(price)}</p>
       </div>
       <ProductAmountButton
+        increaseQ={increaseCardQuantity}
+        decreaseQ={decreaseCardQuantity}
         quantity={quantity}
         className="amount-controls-btn"
       />

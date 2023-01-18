@@ -43,6 +43,13 @@ const cart_reducer = (state, action) => {
   if (action.type === MODAL_CLOSE) {
     return { ...state, modalIsOpen: false };
   }
+  if (action.type === REMOVE_CART_ITEM) {
+    const newCart = state.cart.filter((el) => el.id !== action.payload);
+    return { ...state, cart: newCart };
+  }
+  if (action.type === CLEAR_CART) {
+    return { ...state, cart: [] };
+  }
   throw new Error(`No Matching "${action.type}" - action type`);
 };
 export default cart_reducer;

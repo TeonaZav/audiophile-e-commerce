@@ -21,9 +21,11 @@ const initialState = {
   modalIsOpen: false,
   // cart: [],
   cart: getLocalStCard(), //temporary
-  cartTotal: 0,
   totalItems: 0,
+  cartTotal: 0,
   shipping: 50,
+  vat: 0,
+  orderSubtotal: 0,
 };
 
 const CartContext = React.createContext();
@@ -39,12 +41,25 @@ export const CartProvider = ({ children }) => {
   const closeModal = () => {
     dispach({ type: MODAL_CLOSE });
   };
+  const removeItem = (id) => {
+    dispach({ type: REMOVE_CART_ITEM, payload: id });
+  };
+  const clearCard = () => {
+    dispach({ type: CLEAR_CART });
+  };
   useEffect(() => {
     localStorage.setItem("cart", JSON.stringify(state.cart));
   }, [state.cart]);
   return (
     <CartContext.Provider
-      value={{ ...state, addToCart, openModal, closeModal }}
+      value={{
+        ...state,
+        addToCart,
+        openModal,
+        closeModal,
+        removeItem,
+        clearCard,
+      }}
     >
       {children}
     </CartContext.Provider>
