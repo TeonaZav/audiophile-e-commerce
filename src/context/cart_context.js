@@ -23,9 +23,6 @@ const initialState = {
   cart: getLocalStCard(), //temporary
   totalItems: 0,
   cartTotal: 0,
-  shipping: 50,
-  vat: 0,
-  orderSubtotal: 0,
 };
 
 const CartContext = React.createContext();
@@ -51,6 +48,7 @@ export const CartProvider = ({ children }) => {
     dispach({ type: TOGGLE_CART_ITEM_QUANTITY, payload: { id, value } });
   };
   useEffect(() => {
+    dispach({ type: COUNT_TOTALS });
     localStorage.setItem("cart", JSON.stringify(state.cart));
   }, [state.cart]);
   return (

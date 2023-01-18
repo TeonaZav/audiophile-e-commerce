@@ -91,17 +91,6 @@ const Wrapper = styled.div`
     text-transform: uppercase;
   }
 
-  .btn--full:link,
-  .btn--full:visited {
-    background-color: #d87d4a;
-    color: #fff;
-  }
-  .btn--full:hover,
-  .btn--full:active {
-    background-color: #fbaf85;
-    color: #fff;
-  }
-
   @media (min-width: 48em) {
     .item-ct {
       width: 22.3rem;

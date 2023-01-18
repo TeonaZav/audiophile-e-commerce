@@ -46,16 +46,7 @@ const Wrapper = styled.div`
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  .btn--full:link,
-  .btn--full:visited {
-    background-color: #d87d4a;
-    color: #fff;
-  }
-  .btn--full:hover,
-  .btn--full:active {
-    background-color: #fbaf85;
-    color: #fff;
-  }
+
   .amount-controls-btn {
     width: 12rem;
     height: 4.8rem;

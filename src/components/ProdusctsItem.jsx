@@ -91,16 +91,7 @@ const Wrapper = styled.div`
     letter-spacing: 1rem;
     text-transform: uppercase;
   }
-  .btn--full:link,
-  .btn--full:visited {
-    background-color: #d87d4a;
-    color: #fff;
-  }
-  .btn--full:hover,
-  .btn--full:active {
-    background-color: #fbaf85;
-    color: #fff;
-  }
+
   .image-ct {
     height: 35.2rem;
     background-color: var(--card-color);

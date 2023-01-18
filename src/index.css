@@ -42,6 +42,21 @@ body {
   scroll-behavior: smooth;
   transition: background-color 0.5s ease;
 }
+/* custom scrollbar */
+::-webkit-scrollbar-track {
+  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.123);
+  border-radius: 1rem;
+  background-color: rgba(0, 0, 0, 0.123);
+}
+::-webkit-scrollbar {
+  width: 1rem;
+  background-color: rgba(0, 0, 0, 0.123);
+}
+::-webkit-scrollbar-thumb {
+  border-radius: 1rem;
+  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.116);
+  background-color: white;
+}
 
 .App {
   width: 100vw;
@@ -65,7 +80,16 @@ body {
   transition: all 0.3s;
   text-transform: uppercase;
 }
-
+.btn--full:link,
+.btn--full:visited {
+  background-color: #d87d4a;
+  color: #fff;
+}
+.btn--full:hover,
+.btn--full:active {
+  background-color: #fbaf85;
+  color: #fff;
+}
 .overlay {
   position: fixed;
   top: 0;

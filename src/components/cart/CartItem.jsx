@@ -66,11 +66,10 @@ const Wrapper = styled.div`
   .amount-controls-btn {
     width: 9.6rem;
     height: 3.2rem;
+    margin: 0;
   }
   @media (min-width: 48em) {
-  }
-
-  @media (min-width: 90em) {
+    width: 31.3rem;
   }
 `;
 

@@ -8,7 +8,7 @@ import { useProductsContext } from "../../context/products_context";
 import { useCartContext } from "../../context/cart_context";
 function Header() {
   const { menuIsClose, openSidebar, closeSidebar } = useProductsContext();
-  const { modalIsOpen, openModal, closeModal } = useCartContext();
+  const { modalIsOpen, openModal, closeModal, totalItems } = useCartContext();
   return (
     <Wrapper>
       <CartModal />
@@ -41,12 +41,10 @@ function Header() {
             className="cart-icon-wrap"
             onClick={modalIsOpen ? closeModal : openModal}
           >
-            <span
-              className="cart-product-number"
-              style={{ display: "inline-block" }}
-            >
-              0
-            </span>
+            {totalItems ? (
+              <span className="cart-product-number">{totalItems}</span>
+            ) : null}
+
             <img src={process.env.PUBLIC_URL + "/cart.png"} alt="" />
           </div>
 
@@ -132,8 +130,8 @@ const Wrapper = styled.header`
     position: absolute;
     top: 20%;
     right: 1rem;
-    background-color: #ff7e1b;
-    border-radius: 0.5rem;
+    background-color: #d87d4a;
+    border-radius: 0.8rem;
     z-index: 3000;
     color: #ffffff;
     padding: 0.1rem 1rem 0.5rem 1rem;

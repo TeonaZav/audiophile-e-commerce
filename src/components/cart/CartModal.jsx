@@ -1,34 +1,49 @@
 import styled from "styled-components";
 import { NavLink } from "react-router-dom";
 import { useCartContext } from "../../context/cart_context";
+import { PriceFormatter } from "../../utils/HelperFunctions";
 import CartItem from "./CartItem";
 function CartModal({ showModal, setShowModal }) {
-  const { modalIsOpen, closeModal, cart } = useCartContext();
+  const { modalIsOpen, closeModal, cart, totalItems, cartTotal } =
+    useCartContext();
   return (
     <Wrapper>
       <div className={!modalIsOpen ? "cart-modal hidden" : "cart-modal"}>
         <button class="btn--close-modal" onClick={closeModal}>
           &times;
         </button>
-        <div className="cart-modal__header">
-          <h4>cart (3)</h4> <p>Remove all</p>
-        </div>
+        {cart.length > 0 ? (
+          <div className="modal-main-content">
+            <div className="cart-modal__header">
+              <h4>cart ({totalItems})</h4> <p>Remove all</p>
+            </div>
+            <div className="cart-items">
+              {cart.map((item) => {
+                return (
+                  <CartItem
+                    key={item.id}
+                    id={item.id}
+                    image={item.image}
+                    name={item.name}
+                    price={item.price}
+                    quantity={item.quantity}
+                    item={item}
+                  />
+                );
+              })}
+            </div>
+            <div className="total-wrap">
+              <p>TOTAL</p>
+              <p className="total-amount">{PriceFormatter(cartTotal)}</p>
+            </div>
 
-        {cart.length > 0
-          ? cart.map((item) => {
-              return (
-                <CartItem
-                  key={item.id}
-                  id={item.id}
-                  image={item.image}
-                  name={item.name}
-                  price={item.price}
-                  quantity={item.quantity}
-                  item={item}
-                />
-              );
-            })
-          : "cart is empty"}
+            <NavLink to="/checkout" className="btn btn--full">
+              checkout
+            </NavLink>
+          </div>
+        ) : (
+          <p className="empty">CART IS EMPTY</p>
+        )}
       </div>
     </Wrapper>
   );
@@ -49,6 +64,19 @@ const Wrapper = styled.div`
     display: flex;
     flex-direction: column;
     gap: 2.4rem;
+    max-height: 50rem;
+    overflow: auto;
+  }
+
+  .modal-main-content {
+    display: flex;
+    flex-direction: column;
+    gap: 2.4rem;
+  }
+  .cart-items {
+    display: flex;
+    flex-direction: column;
+    gap: 2.4rem;
   }
   .cart-modal__header {
     display: flex;
@@ -62,37 +90,8 @@ const Wrapper = styled.div`
       color: #000000;
     }
     p {
-      font-weight: 500;
-      font-size: 15px;
-      line-height: 25px;
       color: #000000;
     }
-  }
-
-  .cart-modal__form {
-    margin: 0 3rem;
-    display: grid;
-    grid-template-columns: 1fr 2fr;
-    align-items: center;
-    gap: 2.5rem;
-  }
-
-  .cart-modal__form label {
-    font-size: 1.7rem;
-    font-weight: 500;
-  }
-
-  .cart-modal__form input {
-    font-size: 1.7rem;
-    padding: 1rem 1.5rem;
-    border: 1px solid #ddd;
-    border-radius: 0.5rem;
-  }
-
-  .cart-modal__form button {
-    grid-column: 1 / span 2;
-    justify-self: center;
-    margin-top: 1rem;
   }
 
   .btn--close-modal {
@@ -110,7 +109,28 @@ const Wrapper = styled.div`
   .btn--close-modal:hover {
     color: #d87d4a;
   }
-
+  .total-wrap {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    color: var(--pale-black-5);
+    justify-content: space-between;
+    .total-amount {
+      font-weight: 700;
+      color: black;
+    }
+    margin-top: 0.8rem;
+  }
+  .empty {
+    align-self: center;
+    font-weight: 700;
+    font-size: 1.8rem;
+    letter-spacing: 0.3px;
+  }
+  .btn {
+    font-weight: 500;
+    text-align: center;
+  }
   @media (min-width: 48em) {
     .cart-modal {
       right: 3.9rem;

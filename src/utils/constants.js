@@ -16,3 +16,5 @@ export const categoryInfo = [
     image: "./assets/shared/categories/image-earphones.png",
   },
 ];
+export const VAT = 0.2;
+export const SHIPPING = 50;
