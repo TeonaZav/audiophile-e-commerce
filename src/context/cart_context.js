@@ -9,13 +9,23 @@ import {
   COUNT_TOTALS,
   TOGGLE_CART_ITEM_QUANTITY,
 } from "../actions";
+const getLocalStCard = () => {
+  const localCard = localStorage.getItem("cart");
+  if (localCard) {
+    return JSON.parse(localCard);
+  } else {
+    return [];
+  }
+};
 const initialState = {
   modalIsOpen: false,
-  cart: [],
+  // cart: [],
+  cart: getLocalStCard(), //temporary
   cartTotal: 0,
   totalItems: 0,
   shipping: 50,
 };
+
 const CartContext = React.createContext();
 export const CartProvider = ({ children }) => {
   const [state, dispach] = useReducer(cart_reducer, initialState);
@@ -29,6 +39,9 @@ export const CartProvider = ({ children }) => {
   const closeModal = () => {
     dispach({ type: MODAL_CLOSE });
   };
+  useEffect(() => {
+    localStorage.setItem("cart", JSON.stringify(state.cart));
+  }, [state.cart]);
   return (
     <CartContext.Provider
       value={{ ...state, addToCart, openModal, closeModal }}
