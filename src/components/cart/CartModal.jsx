@@ -3,26 +3,14 @@ import { NavLink } from "react-router-dom";
 import { useCartContext } from "../../context/cart_context";
 import CartItem from "./CartItem";
 function CartModal({ showModal, setShowModal }) {
-  // Modal window
   const { modalIsOpen, closeModal, cart } = useCartContext();
   return (
     <Wrapper>
       <div className={!modalIsOpen ? "cart-modal hidden" : "cart-modal"}>
-        <button className="btn--close-modal" onClick={closeModal}>
-          &times;
-        </button>
         <div className="cart-modal__header">
           <h4>cart (3)</h4> <p>Remove all</p>
         </div>
-        {/* <form class="cart-modal__form">
-          <label>First Name</label>
-          <input type="text" />
-          <label>Last Name</label>
-          <input type="text" />
-          <label>Email Address</label>
-          <input type="email" />
-          <button class="btn">Next step &rarr;</button>
-        </form> */}
+
         {cart.length > 0
           ? cart.map((item) => {
               return (
