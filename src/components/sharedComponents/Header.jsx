@@ -117,6 +117,7 @@ const Wrapper = styled.header`
     justify-content: center;
     align-items: center;
     gap: 1.6rem;
+    z-index: 3000;
   }
 
   .cart-icon-wrap {
@@ -204,6 +205,7 @@ const Wrapper = styled.header`
     color: #fff;
     z-index: 1600;
   }
+
   @media (min-width: 48em) {
     .header-ct {
       padding: 0 3.9rem;

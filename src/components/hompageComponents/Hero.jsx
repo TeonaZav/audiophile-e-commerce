@@ -15,7 +15,7 @@ function Hero(props) {
             </p>
           </div>
           <div>
-            <NavLink className="btn btn--full" to="/">
+            <NavLink className="btn btn--full" to="/all/4">
               See Product
             </NavLink>
           </div>

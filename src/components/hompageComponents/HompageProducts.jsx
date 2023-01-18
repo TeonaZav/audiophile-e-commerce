@@ -33,7 +33,7 @@ function HompageProducts(props) {
               </p>
             </div>
             <div>
-              <NavLink className="btn btn--full" to="/">
+              <NavLink className="btn btn--full" to="/all/6">
                 See Product
               </NavLink>
             </div>
@@ -43,7 +43,7 @@ function HompageProducts(props) {
           <div className="name-btn-wrap">
             <h2>ZX7 SPEAKER</h2>
             <div>
-              <NavLink className="btn btn--outline" to="/">
+              <NavLink className="btn btn--outline" to="/all/5">
                 See Product
               </NavLink>
             </div>
@@ -62,7 +62,7 @@ function HompageProducts(props) {
           <div className="container btn-ct">
             <h2>YX1 EARPHONES</h2>
             <div>
-              <NavLink className="btn btn--outline" to="/">
+              <NavLink className="btn btn--outline" to="/all/1">
                 See Product
               </NavLink>
             </div>
