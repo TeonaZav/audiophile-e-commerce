@@ -11,8 +11,8 @@ function Header() {
   const { modalIsOpen, openModal, closeModal } = useCartContext();
   return (
     <Wrapper>
+      <CartModal />
       <header className="header nav-open">
-        <CartModal />
         <div className="header-ct">
           <div className="logo-nav-container">
             <div
@@ -60,13 +60,18 @@ function Header() {
             </div>
           </div>
         </div>
-        <div className={`${!menuIsClose ? "overlay hidden" : "overlay"}`}></div>
+        <div
+          className={`${
+            menuIsClose && !modalIsOpen ? "overlay hidden" : "overlay"
+          }`}
+        ></div>
       </header>
     </Wrapper>
   );
 }
 const Wrapper = styled.header`
   /* HEADER */
+
   .header {
     min-width: 100vw;
     height: 8.9rem;
@@ -80,7 +85,8 @@ const Wrapper = styled.header`
     margin-bottom: -0.1rem;
   }
   .header-ct {
-    width: calc(100% - 4.8rem);
+    width: 100%;
+    padding: 0 2.4rem;
     margin: 0 auto;
     height: 100%;
     display: flex;
@@ -89,6 +95,7 @@ const Wrapper = styled.header`
     align-items: center;
     background-color: #191919;
     border-bottom: 1px solid hwb(0 100% 0% / 0.2);
+    z-index: 3000;
   }
   /* NAVIGATION */
   .main-nav {
@@ -201,7 +208,7 @@ const Wrapper = styled.header`
   }
   @media (min-width: 48em) {
     .header-ct {
-      width: calc(100% - 7.8rem);
+      padding: 0 3.9rem;
     }
     .cart-product-number {
       right: 2.4rem;
@@ -210,7 +217,7 @@ const Wrapper = styled.header`
 
   @media (min-width: 90em) {
     .header-ct {
-      width: calc(100% - 33rem);
+      padding: 0 16.5rem;
     }
     .mobile-nav,
     .mobile-nav-wrap,

@@ -1,6 +1,7 @@
 import React, { useEffect } from "react";
 import { useParams } from "react-router-dom";
 import Header from "../components/sharedComponents/Header";
+import Footer from "../components/sharedComponents/Footer";
 import Product from "../components/product/Product";
 import LoadingComponent from "../components/sharedComponents/LoadingComponent";
 import BtnGoBack from "../components/product/BtnGoBack";
@@ -38,6 +39,7 @@ function SingleProduct() {
         <Header />
 
         <Product item={item} />
+        <Footer />
       </motion.div>
     </Scroll>
   );

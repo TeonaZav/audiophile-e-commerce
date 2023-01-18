@@ -86,7 +86,8 @@ const Wrapper = styled.footer`
   .footer-box-style-img {
     position: absolute;
     top: -0.1rem;
-    left: 0rem;
+    left: 50%;
+    transform: translateX(-50%);
   }
   .logo-nav-container {
     display: flex;
@@ -199,6 +200,12 @@ const Wrapper = styled.footer`
       flex-direction: row;
       width: calc(100vw - 7.8rem);
       justify-content: space-between;
+    }
+    .footer-box-style-img {
+      position: absolute;
+      top: -0.1rem;
+      left: 0rem;
+      transform: translateX(0);
     }
   }
 

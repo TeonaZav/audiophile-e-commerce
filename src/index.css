@@ -65,9 +65,21 @@ body {
   transition: all 0.3s;
   text-transform: uppercase;
 }
-.overlay.hidden {
+
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.25);
+  backdrop-filter: blur(4px);
+  z-index: 100;
+  transition: all 0.5s;
+}
+.hidden {
   visibility: hidden;
-  background-color: #eceaea;
+  opacity: 0;
 }
 h2 {
   font-weight: 700;

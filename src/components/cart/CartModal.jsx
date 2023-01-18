@@ -7,6 +7,9 @@ function CartModal({ showModal, setShowModal }) {
   return (
     <Wrapper>
       <div className={!modalIsOpen ? "cart-modal hidden" : "cart-modal"}>
+        <button class="btn--close-modal" onClick={closeModal}>
+          &times;
+        </button>
         <div className="cart-modal__header">
           <h4>cart (3)</h4> <p>Remove all</p>
         </div>
@@ -34,9 +37,8 @@ const Wrapper = styled.div`
   /* MODAL WINDOW */
   .cart-modal {
     position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+    top: 12rem;
+    right: 2.8rem;
     width: 32.7rem;
     background-color: #ffffff;
     padding: 3.2rem 2.8rem;
@@ -98,20 +100,29 @@ const Wrapper = styled.div`
     color: var(--pale-black-5);
     position: absolute;
     top: -1rem;
-    right: 0.8rem;
-    font-size: 4rem;
+    right: 1.6rem;
+    font-size: 4.2rem;
+    font-weight: 400;
     cursor: pointer;
     border: none;
     background: none;
   }
-  .hidden {
-    visibility: hidden;
-    opacity: 0;
+  .btn--close-modal:hover {
+    color: #d87d4a;
   }
+
   @media (min-width: 48em) {
+    .cart-modal {
+      right: 3.9rem;
+      width: 37.7rem;
+      padding: 3.2rem;
+    }
   }
 
   @media (min-width: 90em) {
+    .cart-modal {
+      right: 16.5rem;
+    }
   }
 `;
 export default CartModal;
