@@ -9,7 +9,7 @@ function CartModal({ showModal, setShowModal }) {
   return (
     <Wrapper>
       <div className={!modalIsOpen ? "cart-modal hidden" : "cart-modal"}>
-        <button class="btn--close-modal" onClick={closeModal}>
+        <button className="btn--close-modal" onClick={closeModal}>
           &times;
         </button>
         {cart.length > 0 ? (
