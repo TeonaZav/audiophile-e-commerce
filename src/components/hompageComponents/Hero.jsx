@@ -7,13 +7,7 @@ function Hero(props) {
     <Wrapper>
       <section className="hero">
         <div className="hero-ct">
-          <motion.div
-            className="hero-text-box"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            transition={{ duration: 2 }}
-          >
+          <motion.div className="hero-text-box">
             <p className="sub-heading">NEW PRODUCT</p>
             <h1>XX99 Mark II HeadphoneS</h1>
             <p>
