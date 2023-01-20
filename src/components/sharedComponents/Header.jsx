@@ -1,4 +1,5 @@
 import React, { useState, useContext } from "react";
+import { Outlet } from "react-router-dom";
 import styled from "styled-components";
 import Navbar from "../Navbar";
 import MobileNavIcon from "../icons/MobileNavIcon";
@@ -64,6 +65,7 @@ function Header() {
           }`}
         ></div>
       </header>
+      <Outlet />
     </Wrapper>
   );
 }

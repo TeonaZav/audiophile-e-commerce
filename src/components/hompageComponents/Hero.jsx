@@ -1,19 +1,26 @@
 import React from "react";
 import styled from "styled-components";
 import { NavLink } from "react-router-dom";
+import { motion } from "framer-motion";
 function Hero(props) {
   return (
     <Wrapper>
       <section className="hero">
         <div className="hero-ct">
-          <div className="hero-text-box">
+          <motion.div
+            className="hero-text-box"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 2 }}
+          >
             <p className="sub-heading">NEW PRODUCT</p>
             <h1>XX99 Mark II HeadphoneS</h1>
             <p>
               Experience natural, lifelike audio and exceptional build quality
               made for the passionate music enthusiast.
             </p>
-          </div>
+          </motion.div>
           <div>
             <NavLink className="btn btn--full" to="/all/4">
               See Product

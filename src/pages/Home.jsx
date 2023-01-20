@@ -1,5 +1,4 @@
 import React from "react";
-import Header from "../components/sharedComponents/Header";
 import Hero from "../components/hompageComponents/Hero";
 import About from "../components/sharedComponents/About";
 import Footer from "../components/sharedComponents/Footer";
@@ -11,12 +10,11 @@ function Home(props) {
   return (
     <Scroll>
       <motion.div
-        initial={{ opacity: 0 }}
+        initial={{ opacity: 0.5 }}
         animate={{ opacity: 1 }}
         exit={{ opacity: 0 }}
         transition={{ duration: 0.5 }}
       >
-        <Header />
         <Hero />
         <CategoryItems />
         <HompageProducts />

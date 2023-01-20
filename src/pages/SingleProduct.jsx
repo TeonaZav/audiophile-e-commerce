@@ -1,6 +1,5 @@
 import React, { useEffect } from "react";
 import { useParams } from "react-router-dom";
-import Header from "../components/sharedComponents/Header";
 import Footer from "../components/sharedComponents/Footer";
 import Product from "../components/product/Product";
 import LoadingComponent from "../components/sharedComponents/LoadingComponent";
@@ -27,7 +26,7 @@ function SingleProduct() {
 
   return (
     <Scroll>
-      <motion.div exit={{ opacity: 0 }} transition={{ duration: 1 }}>
+      <motion.div initial="hidden" animate="visible" exit={{ duration: 0.3 }}>
         {/* <Header />
       {itemIsLoading ? (
         <LoadingComponent />
@@ -36,7 +35,6 @@ function SingleProduct() {
       ) : (
         <Product item={item} />
       )} */}
-        <Header />
 
         <Product item={item} />
         <Footer />

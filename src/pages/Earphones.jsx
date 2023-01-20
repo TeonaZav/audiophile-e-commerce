@@ -1,5 +1,4 @@
 import React from "react";
-import Header from "../components/sharedComponents/Header";
 import Category from "../components/sharedComponents/Category";
 import CategoryItems from "../components/sharedComponents/CategoryItems";
 import LoadingComponent from "../components/sharedComponents/LoadingComponent";
@@ -13,13 +12,7 @@ function Earphones(props) {
   const { earphones, productIsLoading } = useProductsContext();
   return (
     <Scroll>
-      <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        exit={{ opacity: 0 }}
-        transition={{ duration: 0.5 }}
-      >
-        <Header />
+      <motion.div>
         <Category category={"earphones"} />
         {productIsLoading ? (
           <LoadingComponent />
