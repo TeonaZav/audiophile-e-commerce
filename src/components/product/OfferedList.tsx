@@ -1,10 +1,13 @@
 import React from "react";
 import styled from "styled-components";
 import ItemOffered from "./ItemOffered";
-function OfferedList({ data }) {
+interface IOfferedListProps {
+  data: any;
+}
+function OfferedList({ data }: IOfferedListProps) {
   return (
     <Wrapper>
-      {data.map((el, index) => {
+      {data.map((el: any, index: number) => {
         return <ItemOffered key={index} item={el} index={index} />;
       })}
     </Wrapper>

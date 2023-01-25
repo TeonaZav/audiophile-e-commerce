@@ -1,6 +1,9 @@
 import styled from "styled-components";
-
-function IncludesItems({ quantity, name }) {
+interface IIncludesItemsProps {
+  quantity: number;
+  name: string;
+}
+function IncludesItems({ quantity, name }: IIncludesItemsProps) {
   return (
     <li>
       <Wrapper>

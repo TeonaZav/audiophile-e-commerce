@@ -5,7 +5,10 @@ import ProductGallery from "./ProductGallery";
 import OfferedList from "./OfferedList";
 import BtnGoBack from "./BtnGoBack";
 import { PriceFormatter } from "../../utils/HelperFunctions";
-function Product({ item }) {
+interface IProductProps {
+  item: any;
+}
+function Product({ item }: IProductProps) {
   return (
     <div>
       {item && JSON.stringify(item) !== "{}" ? (
@@ -26,7 +29,6 @@ function Product({ item }) {
                     srcSet={
                       process.env.PUBLIC_URL + item.image.tablet.substring(1)
                     }
-                    alt="headphone"
                   />
 
                   <img
@@ -53,7 +55,7 @@ function Product({ item }) {
               <div className="includes">
                 <h2>in the box</h2>
                 <ul>
-                  {item.includes.map((el, index) => {
+                  {item.includes.map((el: any, index: number) => {
                     return (
                       <IncludesItems
                         quantity={el.quantity}

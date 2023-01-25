@@ -1,6 +1,9 @@
 import React from "react";
 import styled from "styled-components";
-function ProductGallery({ item }) {
+interface IProductGalleryProps {
+  item: any;
+}
+function ProductGallery({ item }: IProductGalleryProps) {
   return (
     <Wrapper>
       <div className="image-1-2-ct">
@@ -17,7 +20,6 @@ function ProductGallery({ item }) {
               srcSet={
                 process.env.PUBLIC_URL + item.gallery.first.tablet.substring(1)
               }
-              alt={`${item.category.substring(1)}`}
             />
 
             <img
@@ -42,7 +44,6 @@ function ProductGallery({ item }) {
               srcSet={
                 process.env.PUBLIC_URL + item.gallery.second.tablet.substring(1)
               }
-              alt={`${item.category.substring(1)}`}
             />
 
             <img
@@ -68,7 +69,6 @@ function ProductGallery({ item }) {
             srcSet={
               process.env.PUBLIC_URL + item.gallery.third.tablet.substring(1)
             }
-            alt={`${item.category.substring(1)}`}
           />
 
           <img

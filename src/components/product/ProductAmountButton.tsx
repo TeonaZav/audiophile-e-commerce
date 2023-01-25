@@ -1,8 +1,17 @@
 import styled from "styled-components";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPlus, faMinus } from "@fortawesome/free-solid-svg-icons";
-
-const ProductAmountButton = ({ decreaseQ, increaseQ, quantity }) => {
+interface IProductAmountButtonProps {
+  decreaseQ: () => void;
+  increaseQ: () => void;
+  quantity: number;
+  className?: string;
+}
+const ProductAmountButton = ({
+  decreaseQ,
+  increaseQ,
+  quantity,
+}: IProductAmountButtonProps) => {
   return (
     <Wrapper className="amount-controls-btn">
       <button>

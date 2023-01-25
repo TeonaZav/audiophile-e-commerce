@@ -9,7 +9,7 @@ import {
   ITEM_FETCH_ERROR,
 } from "../actions";
 
-const products_reducer = (state, action) => {
+const products_reducer = (state: any, action: any) => {
   if (action.type === SIDEBAR_OPEN) {
     console.log({ ...state, menuIsClose: true });
     return { ...state, menuIsClose: true };
@@ -24,12 +24,14 @@ const products_reducer = (state, action) => {
   }
   if (action.type === PRODUCTS_FETCH_SUCCESS) {
     const headphones = action.payload.filter(
-      (el) => el.category === "headphones"
+      (el: any) => el.category === "headphones"
     );
     const earphones = action.payload.filter(
-      (el) => el.category === "earphones"
+      (el: any) => el.category === "earphones"
     );
-    const speakers = action.payload.filter((el) => el.category === "speakers");
+    const speakers = action.payload.filter(
+      (el: any) => el.category === "speakers"
+    );
 
     return {
       ...state,

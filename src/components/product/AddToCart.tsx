@@ -4,7 +4,7 @@ import { NavLink } from "react-router-dom";
 import ProductAmountButton from "./ProductAmountButton";
 import { useProductsContext } from "../../context/products_context";
 import { useCartContext } from "../../context/cart_context";
-function AddToCart(props) {
+function AddToCart() {
   const { addToCart } = useCartContext();
   const { item } = useProductsContext();
   const [quantity, setQuantity] = useState(1);

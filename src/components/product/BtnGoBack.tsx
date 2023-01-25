@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import { useNavigate } from "react-router-dom";
-function BtnGoBack(props) {
+function BtnGoBack() {
   const navigate = useNavigate();
   return (
     <Wrapper>

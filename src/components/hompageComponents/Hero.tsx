@@ -2,7 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import { NavLink } from "react-router-dom";
 import { motion } from "framer-motion";
-function Hero(props) {
+function Hero() {
   return (
     <Wrapper>
       <section className="hero">

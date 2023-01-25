@@ -7,7 +7,7 @@ import {
   faTwitter,
   faInstagram,
 } from "@fortawesome/free-brands-svg-icons";
-function Footer(props) {
+function Footer() {
   return (
     <Wrapper>
       <footer className="footer">

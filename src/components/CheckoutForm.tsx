@@ -3,7 +3,7 @@ import styled from "styled-components";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { useForm } from "react-hook-form";
 import schema from "./CheckoutSchema";
-import PhoneInput, { isValidPhoneNumber } from "react-phone-number-input";
+
 type Email = string & { readonly email: unique symbol };
 type FormValues = {
   name: String;
@@ -13,6 +13,7 @@ type FormValues = {
   zip: String;
   city: String;
   country: String;
+  payment: String;
 };
 function CheckoutForm() {
   const {
@@ -22,8 +23,7 @@ function CheckoutForm() {
     reset,
     formState: { errors },
   } = useForm<FormValues>({ resolver: yupResolver(schema) });
-
-  console.log(errors.name);
+  console.log(errors.payment);
   return (
     <Wrapper>
       <div className="form-ct">
@@ -115,7 +115,51 @@ function CheckoutForm() {
               <p className="error">{errors.country?.message}</p>
             </div>
           </div>
+          <h4>payment details</h4>
+          <div className="payment-ct">
+            <div
+              className={
+                errors.payment ? "radio-field is-invalid" : "radio-field"
+              }
+            >
+              <input
+                {...register("payment", {
+                  required: {
+                    value: true,
+                    message: "Please check payment method",
+                  },
+                })}
+                type="radio"
+                // name="payment"
+                value="e-money"
+                id="e-money"
+                style={{ width: "2rem", height: "2rem" }}
+              />
+              <label htmlFor="e-money">e-Money</label>
+            </div>
 
+            <div
+              className={
+                errors.payment ? "radio-field is-invalid" : "radio-field"
+              }
+            >
+              <input
+                {...register("payment", {
+                  required: {
+                    value: true,
+                    message: "Please check payment method",
+                  },
+                })}
+                type="radio"
+                id="cash"
+                // name="payment"
+                value="cash"
+                style={{ width: "2rem", height: "2rem" }}
+              />
+              <label htmlFor="cash">Cash on Delivery</label>
+            </div>
+          </div>
+          <p className="error">{errors.payment?.message}</p>
           <input
             type="submit"
             className="btn btn--full"
@@ -235,6 +279,41 @@ const Wrapper = styled.div`
     -webkit-box-shadow: 0 0 0 1000px white inset !important;
     -webkit-text-fill-color: #555555 !important;
   }
+  .payment-ct {
+    display: flex;
+    flex-direction: column;
+    gap: 1.6rem;
+    margin-bottom: 3.2rem;
+  }
+  .radio-field {
+    width: 28rem;
+    height: 5.6rem;
+    background: #ffffff;
+    border: 1px solid #cfcfcf;
+    border-radius: 0.8rem;
+    padding: 1.6rem;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 2rem;
+  }
+  .radio-field .is-invalid {
+    border: 0.1rem solid #cd2c2c;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 2rem;
+  }
+  input[type="radio"]#cash,
+  input[type="radio"]#e-money {
+    accent-color: #d87d4a;
+    width: 2rem;
+    height: 2rem;
+  }
+
+  .radio-field:has(input:focus) {
+    border: 1px solid #d87d4a;
+  }
   @media (min-width: 48em) {
     .form-field {
       width: 30.9rem;
@@ -256,6 +335,9 @@ const Wrapper = styled.div`
       flex-wrap: wrap;
       gap: 1.5rem;
       margin-bottom: 3.2rem;
+    }
+    .radio-field {
+      width: 30.9rem;
     }
   }
   @media (min-width: 90em) {

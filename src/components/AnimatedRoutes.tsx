@@ -1,5 +1,4 @@
-import React, { useState, useContext } from "react";
-import { Route, Routes, useLocation, Outlet } from "react-router-dom";
+import { Route, Routes, useLocation } from "react-router-dom";
 import Home from "../pages/Home";
 import Earphones from "../pages/Earphones";
 import Headphones from "../pages/Headphones";
@@ -16,7 +15,7 @@ function AnimatedRoutes() {
     <AnimatePresence>
       <Routes location={location} key={location.pathname}>
         <Route path="/" element={<Header />}>
-          <Route index element={<Home>Hii Welcome home</Home>} />
+          <Route index element={<Home />} />
           <Route path="/earphones" element={<Earphones />} />
           <Route path="/headphones" element={<Headphones />} />
           <Route path="/speakers" element={<Speakers />} />

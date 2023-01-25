@@ -26,7 +26,7 @@ function SingleProduct() {
 
   return (
     <Scroll>
-      <motion.div initial="hidden" animate="visible" exit={{ duration: 0.3 }}>
+      <motion.div>
         {/* <Header />
       {itemIsLoading ? (
         <LoadingComponent />

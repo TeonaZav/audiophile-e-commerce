@@ -8,7 +8,7 @@ import ProductList from "../components/ProductList";
 import { useProductsContext } from "../context/products_context";
 import { Scroll } from "../components/ScrollToTop";
 import { motion } from "framer-motion";
-function Earphones(props) {
+function Earphones() {
   const { earphones, productIsLoading } = useProductsContext();
   return (
     <Scroll>

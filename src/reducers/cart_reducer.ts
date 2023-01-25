@@ -7,12 +7,12 @@ import {
   COUNT_TOTALS,
   TOGGLE_CART_ITEM_QUANTITY,
 } from "../actions";
-const cart_reducer = (state, action) => {
+const cart_reducer = (state: any, action: any) => {
   if (action.type === ADD_TO_CART) {
     const { id, quantity, product } = action.payload;
-    const item = state.cart.find((el) => el.id == id);
+    const item = state.cart.find((el: any) => el.id == id);
     if (item) {
-      const tempCard = state.cart.map((el) => {
+      const tempCard = state.cart.map((el: any) => {
         if (el.id === id) {
           console.log(el.id, id);
 
@@ -44,7 +44,7 @@ const cart_reducer = (state, action) => {
     return { ...state, modalIsOpen: false };
   }
   if (action.type === REMOVE_CART_ITEM) {
-    const newCart = state.cart.filter((el) => el.id !== action.payload);
+    const newCart = state.cart.filter((el: any) => el.id !== action.payload);
     return { ...state, cart: newCart };
   }
   if (action.type === CLEAR_CART) {
@@ -52,7 +52,7 @@ const cart_reducer = (state, action) => {
   }
   if (action.type === TOGGLE_CART_ITEM_QUANTITY) {
     const { id, value } = action.payload;
-    const newCart = state.cart.map((el) => {
+    const newCart = state.cart.map((el: any) => {
       if (id === el.id) {
         if (value === "increase") {
           let newQuantity = el.quantity + 1;
@@ -69,7 +69,7 @@ const cart_reducer = (state, action) => {
   }
   if (action.type === COUNT_TOTALS) {
     const { totalItems, cartTotal } = state.cart.reduce(
-      (total, cartEl) => {
+      (total: any, cartEl: any) => {
         const { quantity, price } = cartEl;
         total.totalItems = total.totalItems + quantity;
         total.cartTotal = total.cartTotal + quantity * price;

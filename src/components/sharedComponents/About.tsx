@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 
-function About(props) {
+function About() {
   return (
     <Wrapper>
       <section className="section-about">
@@ -14,7 +14,6 @@ function About(props) {
                   process.env.PUBLIC_URL +
                   "/assets/shared/desktop/image-best-gear.jpg"
                 }
-                alt="headphone"
               />
               <source
                 media="(min-width:768px)"
@@ -22,7 +21,6 @@ function About(props) {
                   process.env.PUBLIC_URL +
                   "/assets/shared/tablet/image-best-gear.jpg"
                 }
-                alt="headphone"
               />
 
               <img

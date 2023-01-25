@@ -2,11 +2,14 @@ import React from "react";
 import styled from "styled-components";
 
 import ProdusctsItem from "./ProdusctsItem";
-function ProductList({ data }) {
+interface IProdusctsItemProps {
+  data: any;
+}
+function ProductList({ data }: IProdusctsItemProps) {
   return (
     <Wrapper>
       <div>
-        {data.map((el, index) => {
+        {data.map((el: any, index: number) => {
           {
             /* return <ProdusctsItem key={el._id} item={el} index={index} />; */
           }

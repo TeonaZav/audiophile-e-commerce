@@ -2,13 +2,17 @@ import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import { NavLink } from "react-router-dom";
 import { useProductsContext } from "../../context/products_context";
-function ItemOffered({ item, index }) {
+interface IItemOfferedProps {
+  item: any;
+  index: number;
+}
+function ItemOffered({ item, index }: IItemOfferedProps) {
   const { products } = useProductsContext();
   const url = "http://localhost:5000/api/v1/products/all";
   const [to, setTo] = useState(`/all/`);
   const [loading, setLoading] = useState(false);
   const getId = () => {
-    const filtered = products.filter((el) => el.slug === item.slug);
+    const filtered = products.filter((el: any) => el.slug === item.slug);
     // setTo("/all/" + filtered[0]._id);
     setTo("/all/" + filtered[0].id); //temporary
     setLoading(false);
@@ -32,7 +36,6 @@ function ItemOffered({ item, index }) {
             <source
               media="(min-width:768px)"
               srcSet={process.env.PUBLIC_URL + item.image.tablet.substring(1)}
-              alt="headphone"
             />
 
             <img

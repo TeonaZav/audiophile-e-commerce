@@ -1,8 +1,11 @@
-import React from "react";
 import styled from "styled-components";
 import { NavLink } from "react-router-dom";
 import { useProductsContext } from "../context/products_context";
-function ProdusctsItem({ item, index }) {
+interface IProdusctsItemProps {
+  item: any;
+  index: number;
+}
+function ProdusctsItem({ item, index }: IProdusctsItemProps) {
   const { getProduct } = useProductsContext();
   const url = "http://localhost:5000/api/v1/products/all";
   return (
@@ -23,7 +26,6 @@ function ProdusctsItem({ item, index }) {
             <source
               media="(min-width:768px)"
               srcSet={process.env.PUBLIC_URL + item.image.tablet.substring(1)}
-              alt="headphone"
             />
 
             <img
@@ -44,7 +46,6 @@ function ProdusctsItem({ item, index }) {
               // onClick={(e) => getProduct(url, item._id)}
               onClick={(e) => getProduct(item.id)}
             >
-              {console.log(item.id)}
               See Product
             </NavLink>
           </div>

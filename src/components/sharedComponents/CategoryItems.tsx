@@ -4,7 +4,7 @@ import { NavLink } from "react-router-dom";
 import { categoryInfo } from "../../utils/constants";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faAngleRight } from "@fortawesome/free-solid-svg-icons";
-function CategoryItems(props) {
+function CategoryItems() {
   return (
     <Wrapper>
       <section>
@@ -22,7 +22,6 @@ function CategoryItems(props) {
                     }
                     alt={`${name.toLowerCase()}`}
                   />
-                  {console.log(pic)}
                 </div>
                 <NavLink
                   className="category-link"

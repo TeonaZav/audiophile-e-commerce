@@ -1,5 +1,8 @@
 import styled from "styled-components";
-const Category = ({ category }) => {
+interface ICategoryProps {
+  category: string;
+}
+const Category = ({ category }: ICategoryProps) => {
   return (
     <Wrapper>
       <div className="heading-ct">

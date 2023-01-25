@@ -6,7 +6,7 @@ import CategoryItems from "../components/sharedComponents/CategoryItems";
 import HompageProducts from "../components/hompageComponents/HompageProducts";
 import { motion } from "framer-motion";
 import { Scroll } from "../components/ScrollToTop";
-function Home(props) {
+function Home() {
   return (
     <Scroll>
       <motion.div>

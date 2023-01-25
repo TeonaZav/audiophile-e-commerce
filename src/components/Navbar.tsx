@@ -1,7 +1,7 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
 import { useProductsContext } from "../context/products_context";
-function Navbar(props) {
+function Navbar() {
   const { menuIsClose, openSidebar } = useProductsContext();
 
   return (

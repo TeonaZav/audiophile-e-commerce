@@ -3,7 +3,8 @@ import { NavLink } from "react-router-dom";
 import { useCartContext } from "../../context/cart_context";
 import { PriceFormatter } from "../../utils/HelperFunctions";
 import CartItem from "./CartItem";
-function CartModal({ showModal, setShowModal }) {
+
+function CartModal() {
   const { modalIsOpen, closeModal, cart, totalItems, cartTotal } =
     useCartContext();
   return (
@@ -18,7 +19,7 @@ function CartModal({ showModal, setShowModal }) {
               <h4>cart ({totalItems})</h4> <p>Remove all</p>
             </div>
             <div className="cart-items">
-              {cart.map((item) => {
+              {cart.map((item: any) => {
                 return (
                   <CartItem
                     key={item.id}
