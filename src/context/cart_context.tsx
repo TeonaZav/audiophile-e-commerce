@@ -9,7 +9,6 @@ import {
   COUNT_TOTALS,
   TOGGLE_CART_ITEM_QUANTITY,
 } from "../actions";
-import { boolean } from "yup/lib/locale";
 const getLocalStCard = () => {
   const localCard = localStorage.getItem("cart");
   if (localCard) {

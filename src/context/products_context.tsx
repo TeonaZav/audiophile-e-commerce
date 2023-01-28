@@ -5,12 +5,12 @@ import data from "../data.json";
 import {
   SIDEBAR_OPEN,
   SIDEBAR_CLOSE,
-  PRODUCTS_FETCH_START,
-  PRODUCTS_FETCH_SUCCESS,
-  PRODUCTS_FETCH_ERROR,
-  ITEM_FETCH_START,
+  // PRODUCTS_FETCH_START,
+  // PRODUCTS_FETCH_SUCCESS,
+  // PRODUCTS_FETCH_ERROR,
+  // ITEM_FETCH_START,
   ITEM_FETCH_SUCCESS,
-  ITEM_FETCH_ERROR,
+  // ITEM_FETCH_ERROR,
 } from "../actions";
 import { string } from "yup/lib/locale";
 const headphonesData = data.filter((el) => el.category === "headphones");
