@@ -5,7 +5,7 @@ function Navbar() {
   const { menuIsClose, openSidebar } = useProductsContext();
 
   return (
-    <ul className="nav-list" onClick={!menuIsClose ? openSidebar : null}>
+    <ul className="nav-list" onClick={!menuIsClose ? openSidebar : undefined}>
       <li>
         <NavLink className="nav-link" to="/">
           HOME

@@ -9,6 +9,7 @@ import {
   COUNT_TOTALS,
   TOGGLE_CART_ITEM_QUANTITY,
 } from "../actions";
+import { boolean } from "yup/lib/locale";
 const getLocalStCard = () => {
   const localCard = localStorage.getItem("cart");
   if (localCard) {
@@ -25,11 +26,21 @@ const initialState = {
   cartTotal: 0,
 };
 
-const CartContext = React.createContext();
-export const CartProvider = ({ children }) => {
+const CartContext = React.createContext({
+  cart: [],
+  cartTotal: 0,
+  totalItems: 0,
+  addToCart: (id: number, quantity: number, product: any) => {},
+  removeItem: (id: number) => {},
+  toggleQuantity: (id: number, value: string) => {},
+  modalIsOpen: false,
+  openModal: () => {},
+  closeModal: () => {},
+});
+export const CartProvider = ({ children }: any) => {
   const [state, dispach] = useReducer(cart_reducer, initialState);
   //=====add to cart=====//
-  const addToCart = (id, quantity, product) => {
+  const addToCart = (id: number, quantity: number, product: any) => {
     dispach({ type: ADD_TO_CART, payload: { id, quantity, product } });
   };
   const openModal = () => {
@@ -38,13 +49,13 @@ export const CartProvider = ({ children }) => {
   const closeModal = () => {
     dispach({ type: MODAL_CLOSE });
   };
-  const removeItem = (id) => {
+  const removeItem = (id: number) => {
     dispach({ type: REMOVE_CART_ITEM, payload: id });
   };
   const clearCard = () => {
     dispach({ type: CLEAR_CART });
   };
-  const toggleQuantity = (id, value) => {
+  const toggleQuantity = (id: number, value: string) => {
     dispach({ type: TOGGLE_CART_ITEM_QUANTITY, payload: { id, value } });
   };
   useEffect(() => {

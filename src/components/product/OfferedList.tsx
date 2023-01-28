@@ -1,8 +1,9 @@
 import React from "react";
 import styled from "styled-components";
 import ItemOffered from "./ItemOffered";
+import { ProductType } from "../../types";
 interface IOfferedListProps {
-  data: any;
+  data: ProductType[];
 }
 function OfferedList({ data }: IOfferedListProps) {
   return (

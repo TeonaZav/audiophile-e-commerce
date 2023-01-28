@@ -1,7 +1,8 @@
 import React from "react";
 import styled from "styled-components";
+import { ProductType } from "../../types";
 interface IProductGalleryProps {
-  item: any;
+  item: ProductType;
 }
 function ProductGallery({ item }: IProductGalleryProps) {
   return (

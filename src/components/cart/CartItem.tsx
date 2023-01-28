@@ -3,15 +3,17 @@ import { useCartContext } from "../../context/cart_context";
 import styled from "styled-components";
 import { PriceFormatter } from "../../utils/HelperFunctions";
 import ProductAmountButton from "../product/ProductAmountButton";
+import { ProductType } from "../../types";
 interface ICartItemProps {
-  id: string;
+  id: number;
   image: string;
   name: string;
   price: number;
   quantity: number;
-  item: any;
+  item: ProductType;
   className?: string;
 }
+
 function CartItem({ id, image, name, price, quantity, item }: ICartItemProps) {
   const { cart, cartTotal, totalItems, removeItem, toggleQuantity } =
     useCartContext();

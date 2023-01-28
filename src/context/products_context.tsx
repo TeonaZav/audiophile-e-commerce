@@ -12,6 +12,7 @@ import {
   ITEM_FETCH_SUCCESS,
   ITEM_FETCH_ERROR,
 } from "../actions";
+import { string } from "yup/lib/locale";
 const headphonesData = data.filter((el) => el.category === "headphones");
 const earphonesData = data.filter((el) => el.category === "earphones");
 const speakerssData = data.filter((el) => el.category === "speakers");
@@ -34,10 +35,25 @@ const initialState = {
   item: {},
 };
 
-const ProductsContext = React.createContext();
+const ProductsContext = React.createContext({
+  id: 0,
+  item: {} as any,
+  products: [] as any[],
+  menuIsClose: true,
+  openSidebar: () => {},
+  closeSidebar: () => {},
+  getProduct: (id: number) => {},
+  modalIsOpen: false,
+  itemIsLoading: false,
+  productIsLoading: false,
+  earphones: initialState,
+  headphones: initialState,
+  speakers: initialState,
+  itemFetchError: false,
+});
 // const url = "http://localhost:5000/api/v1/products/all";
 const url = "../data.json";
-export const ProductsProvider = ({ children }) => {
+export const ProductsProvider = ({ children }: any) => {
   const [state, dispach] = useReducer(reducer, initialState);
   const openSidebar = () => {
     dispach({ type: SIDEBAR_OPEN });
@@ -79,8 +95,8 @@ export const ProductsProvider = ({ children }) => {
   /*================
     get product by ID from local data.json/ Temporarily unavailable
    =================*/
-  const getProduct = (id) => {
-    const filtered = data.filter((el) => el.id == id);
+  const getProduct = (id: number) => {
+    const filtered = data.filter((el: any) => el.id === id);
     console.log(filtered[0]);
     dispach({ type: ITEM_FETCH_SUCCESS, payload: filtered[0] });
   };

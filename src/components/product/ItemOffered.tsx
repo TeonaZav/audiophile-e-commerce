@@ -2,8 +2,9 @@ import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import { NavLink } from "react-router-dom";
 import { useProductsContext } from "../../context/products_context";
+import { ProductType } from "../../types";
 interface IItemOfferedProps {
-  item: any;
+  item: ProductType;
   index: number;
 }
 function ItemOffered({ item, index }: IItemOfferedProps) {

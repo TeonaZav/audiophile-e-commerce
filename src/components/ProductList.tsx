@@ -2,6 +2,7 @@ import React from "react";
 import styled from "styled-components";
 
 import ProdusctsItem from "./ProdusctsItem";
+import { ProductType } from "../types";
 interface IProdusctsItemProps {
   data: any;
 }

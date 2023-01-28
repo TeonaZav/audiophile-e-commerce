@@ -5,6 +5,7 @@ import ProductGallery from "./ProductGallery";
 import OfferedList from "./OfferedList";
 import BtnGoBack from "./BtnGoBack";
 import { PriceFormatter } from "../../utils/HelperFunctions";
+import { ProductType } from "../../types";
 interface IProductProps {
   item: any;
 }

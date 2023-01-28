@@ -18,7 +18,7 @@ function SingleProduct() {
   useEffect(() => {
     // getProduct(url, id);
     if (id) {
-      getProduct(id); //temporary
+      getProduct(Number(id)); //temporary
     } else {
       console.log("hii");
     }

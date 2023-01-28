@@ -1,8 +1,9 @@
 import styled from "styled-components";
 import { NavLink } from "react-router-dom";
 import { useProductsContext } from "../context/products_context";
+import { ProductType } from "../types";
 interface IProdusctsItemProps {
-  item: any;
+  item: ProductType;
   index: number;
 }
 function ProdusctsItem({ item, index }: IProdusctsItemProps) {
