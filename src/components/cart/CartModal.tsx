@@ -5,7 +5,7 @@ import { PriceFormatter } from "../../utils/HelperFunctions";
 import CartItem from "./CartItem";
 
 function CartModal() {
-  const { modalIsOpen, closeModal, cart, totalItems, cartTotal } =
+  const { modalIsOpen, closeModal, cart, totalItems, cartTotal, clearCard } =
     useCartContext();
   return (
     <Wrapper>
@@ -16,7 +16,10 @@ function CartModal() {
         {cart.length > 0 ? (
           <div className="modal-main-content">
             <div className="cart-modal__header">
-              <h4>cart ({totalItems})</h4> <p>Remove all</p>
+              <h4>cart ({totalItems})</h4>{" "}
+              <p className="clear" onClick={clearCard}>
+                Remove all
+              </p>
             </div>
             <div className="cart-items">
               {cart.map((item: any) => {
@@ -135,6 +138,9 @@ const Wrapper = styled.div`
   .btn {
     font-weight: 500;
     text-align: center;
+  }
+  .clear {
+    cursor: pointer;
   }
   @media (min-width: 48em) {
     .cart-modal {

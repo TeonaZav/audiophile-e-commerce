@@ -35,6 +35,7 @@ const CartContext = React.createContext({
   modalIsOpen: false,
   openModal: () => {},
   closeModal: () => {},
+  clearCard: () => {},
 });
 export const CartProvider = ({ children }: any) => {
   const [state, dispach] = useReducer(cart_reducer, initialState);
