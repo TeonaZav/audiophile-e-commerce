@@ -38,7 +38,11 @@ function CartModal() {
               <p className="total-amount">{PriceFormatter(cartTotal)}</p>
             </div>
 
-            <NavLink to="/checkout" className="btn btn--full">
+            <NavLink
+              to="/checkout"
+              className="btn btn--full"
+              onClick={closeModal}
+            >
               checkout
             </NavLink>
           </div>
