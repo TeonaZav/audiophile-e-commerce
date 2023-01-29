@@ -174,7 +174,7 @@ const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 100vw;
+
   padding: 2.4rem;
   .details-container {
     display: flex;
@@ -342,7 +342,7 @@ const Wrapper = styled.div`
   }
   @media (min-width: 90em) {
     align-items: flex-start;
-    padding: 3.8rem 16.5rem;
+    padding: 3.8rem 0rem;
 
     .address-field {
       width: calc(73rem - 9.6rem);

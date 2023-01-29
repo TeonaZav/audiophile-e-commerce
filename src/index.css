@@ -117,3 +117,17 @@ p {
   font-size: 1.5rem;
   line-height: 2.5rem;
 }
+.flex-c-center {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+@media (min-width: 90em) {
+  .flex-c-center {
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: center;
+    width: 100vw;
+    gap: 3rem;
+  }
+}
