@@ -4,7 +4,7 @@ import { useCartContext } from "../../context/cart_context";
 import { PriceFormatter } from "../../utils/HelperFunctions";
 import CheckoutItem from "./CheckoutItem";
 function Summary() {
-  const { cart, totalItems, cartTotal } = useCartContext();
+  const { cart, totalItems, cartTotal, openConfirmation } = useCartContext();
   return (
     <Wrapper>
       <div className="summary">
@@ -45,7 +45,11 @@ function Summary() {
             </p>
           </div>
 
-          <NavLink to="/checkout" className="btn btn--full">
+          <NavLink
+            to="/checkout"
+            className="btn btn--full"
+            onClick={openConfirmation}
+          >
             CONTINUE & PAY
           </NavLink>
         </div>

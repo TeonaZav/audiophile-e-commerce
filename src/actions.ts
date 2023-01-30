@@ -6,6 +6,8 @@ export const CLEAR_CART = "CLEAR_CART";
 export const COUNT_TOTALS = "COUNT_TOTALS";
 export const MODAL_OPEN = "MODAL_OPEN";
 export const MODAL_CLOSE = "MODAL_CLOSE";
+export const CONFIRMATION_OPEN = "CONFIRMATION_OPEN";
+export const CONFIRMATION_CLOSE = "CONFIRMATION_CLOSE";
 
 //============sidebar==========//
 export const SIDEBAR_OPEN = "SIDEBAR_OPEN";

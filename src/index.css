@@ -28,6 +28,8 @@ input:-webkit-autofill:active {
   --pale-black-5: hwb(0 0% 100% / 0.5);
   --pale-black-25: hwb(0 0% 100% / 0.25);
   --pale-white-75: rgba(255, 255, 255, 0.75);
+  --pale-black-08: hwb(0 0% 100% / 0.08);
+  --pale-white-5: rgba(255, 255, 255, 0.5);
 }
 body {
   margin: 0 auto;
@@ -100,6 +102,9 @@ body {
   backdrop-filter: blur(4px);
   z-index: 100;
   transition: all 0.5s;
+}
+.full {
+  z-index: 5000;
 }
 .hidden {
   visibility: hidden;

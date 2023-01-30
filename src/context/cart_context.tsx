@@ -4,6 +4,8 @@ import {
   ADD_TO_CART,
   MODAL_OPEN,
   MODAL_CLOSE,
+  CONFIRMATION_OPEN,
+  CONFIRMATION_CLOSE,
   REMOVE_CART_ITEM,
   CLEAR_CART,
   COUNT_TOTALS,
@@ -26,16 +28,19 @@ const initialState = {
 };
 
 const CartContext = React.createContext({
-  cart: [],
+  cart: [] as any[],
   cartTotal: 0,
   totalItems: 0,
   addToCart: (id: number, quantity: number, product: any) => {},
   removeItem: (id: number) => {},
   toggleQuantity: (id: number, value: string) => {},
   modalIsOpen: false,
+  confirmationIsOpen: false,
   openModal: () => {},
   closeModal: () => {},
   clearCard: () => {},
+  openConfirmation: () => {},
+  closeConfirmation: () => {},
 });
 export const CartProvider = ({ children }: any) => {
   const [state, dispach] = useReducer(cart_reducer, initialState);
@@ -48,6 +53,12 @@ export const CartProvider = ({ children }: any) => {
   };
   const closeModal = () => {
     dispach({ type: MODAL_CLOSE });
+  };
+  const openConfirmation = () => {
+    dispach({ type: CONFIRMATION_OPEN });
+  };
+  const closeConfirmation = () => {
+    dispach({ type: CONFIRMATION_CLOSE });
   };
   const removeItem = (id: number) => {
     dispach({ type: REMOVE_CART_ITEM, payload: id });
@@ -68,6 +79,8 @@ export const CartProvider = ({ children }: any) => {
         ...state,
         addToCart,
         openModal,
+        openConfirmation,
+        closeConfirmation,
         closeModal,
         removeItem,
         clearCard,

@@ -26,7 +26,7 @@ function CheckoutItem({
     useCartContext();
 
   return (
-    <Wrapper>
+    <Wrapper className="checkout-product">
       <div className="name-price-ct">
         <div className="cart-image">
           <img src={process.env.PUBLIC_URL + `${image}`} alt="" />

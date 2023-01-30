@@ -4,15 +4,18 @@ import styled from "styled-components";
 import Navbar from "../Navbar";
 import MobileNavIcon from "../icons/MobileNavIcon";
 import CartModal from "../cart/CartModal";
+import ConfirmationModal from "../ConfirmationModal";
 import { NavLink } from "react-router-dom";
 import { useProductsContext } from "../../context/products_context";
 import { useCartContext } from "../../context/cart_context";
 function Header() {
   const { menuIsClose, openSidebar, closeSidebar } = useProductsContext();
-  const { modalIsOpen, openModal, closeModal, totalItems } = useCartContext();
+  const { modalIsOpen, openModal, closeModal, totalItems, confirmationIsOpen } =
+    useCartContext();
   return (
     <Wrapper>
       <CartModal />
+      <ConfirmationModal />
       <header className="header nav-open">
         <div className="header-ct">
           <div className="logo-nav-container">
@@ -59,9 +62,14 @@ function Header() {
             </div>
           </div>
         </div>
+
         <div
           className={`${
-            menuIsClose && !modalIsOpen ? "overlay hidden" : "overlay"
+            menuIsClose && !modalIsOpen && !confirmationIsOpen
+              ? "overlay hidden"
+              : confirmationIsOpen
+              ? "overlay full"
+              : "overlay"
           }`}
         ></div>
       </header>

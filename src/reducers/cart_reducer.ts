@@ -2,6 +2,8 @@ import {
   ADD_TO_CART,
   MODAL_OPEN,
   MODAL_CLOSE,
+  CONFIRMATION_OPEN,
+  CONFIRMATION_CLOSE,
   REMOVE_CART_ITEM,
   CLEAR_CART,
   COUNT_TOTALS,
@@ -42,6 +44,12 @@ const cart_reducer = (state: any, action: any) => {
   }
   if (action.type === MODAL_CLOSE) {
     return { ...state, modalIsOpen: false };
+  }
+  if (action.type === CONFIRMATION_OPEN) {
+    return { ...state, confirmationIsOpen: true };
+  }
+  if (action.type === CONFIRMATION_CLOSE) {
+    return { ...state, confirmationIsOpen: false };
   }
   if (action.type === REMOVE_CART_ITEM) {
     const newCart = state.cart.filter((el: any) => el.id !== action.payload);
