@@ -2,8 +2,9 @@ import React, { useState } from "react";
 import styled from "styled-components";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { useForm } from "react-hook-form";
+import { useCartContext } from "../../context/cart_context";
 import schema from "./CheckoutSchema";
-
+import Summary from "./summary";
 type Email = string & { readonly email: unique symbol };
 type FormValues = {
   name: String;
@@ -14,6 +15,8 @@ type FormValues = {
   city: String;
   country: String;
   payment: String;
+  emoneyN: String;
+  pin: String;
 };
 function CheckoutForm() {
   const {
@@ -22,150 +25,202 @@ function CheckoutForm() {
     watch,
     reset,
     formState: { errors },
-  } = useForm<FormValues>({ resolver: yupResolver(schema) });
-  console.log(errors.payment);
+  } = useForm<FormValues>({
+    defaultValues: {
+      payment: "e-money",
+    },
+    mode: "onChange",
+    resolver: yupResolver(schema),
+  });
+  const { openConfirmation } = useCartContext();
+
+  // const { register } = form;
   return (
     <Wrapper>
-      <div className="form-ct">
-        <h1>CHECKOUT</h1>
-        <form onSubmit={handleSubmit((data) => console.log(data))}>
-          <h4>Billing details</h4>
-          <div className="details-container">
-            <div className="form-field">
-              <label htmlFor="name">Name</label>
-              <input
-                {...register("name", { required: "Name is required" })}
-                placeholder="Alexei Ward"
-                className={errors.name ? "is-invalid" : ""}
-                autoComplete="off"
-              />
-              <p className="error">{errors.name?.message}</p>
+      <div className="flex-c-center">
+        <div className="form-ct">
+          <h1>CHECKOUT</h1>
+          <form
+            onSubmit={handleSubmit((data) => {
+              console.log(data);
+              openConfirmation();
+            })}
+            id="checkout-form"
+          >
+            <h4>Billing details</h4>
+            <div className="details-container">
+              <div className="form-field">
+                <label htmlFor="name">Name</label>
+                <input
+                  {...register("name", { required: "Name is required" })}
+                  placeholder="Alexei Ward"
+                  className={errors.name ? "is-invalid" : ""}
+                  autoComplete="off"
+                />
+                <p className="error">{errors.name?.message}</p>
+              </div>
+              <div className="form-field">
+                <label htmlFor="email">Email Address</label>
+                <input
+                  {...register("email", { required: "Email is required" })}
+                  placeholder="alexei@mail.com"
+                  className={errors.email ? "is-invalid" : ""}
+                  autoComplete="off"
+                />
+                <p className="error">{errors.email?.message}</p>
+              </div>
+              <div className="form-field">
+                <label htmlFor="phone">Phone Number</label>
+                <input
+                  {...register("phone", { required: "Phone is required" })}
+                  placeholder="+1 202-555-0136"
+                  className={errors.phone ? "is-invalid" : ""}
+                  autoComplete="off"
+                />
+                <p className="error">{errors.phone?.message}</p>
+              </div>
             </div>
-            <div className="form-field">
-              <label htmlFor="email">Email Address</label>
-              <input
-                {...register("email", { required: "Email is required" })}
-                placeholder="alexei@mail.com"
-                className={errors.email ? "is-invalid" : ""}
-                autoComplete="off"
-              />
-              <p className="error">{errors.email?.message}</p>
-            </div>
-            <div className="form-field">
-              <label htmlFor="phone">Phone Number</label>
-              <input
-                {...register("phone", { required: "Phone is required" })}
-                placeholder="+1 202-555-0136"
-                className={errors.phone ? "is-invalid" : ""}
-                autoComplete="off"
-              />
-              <p className="error">{errors.phone?.message}</p>
-            </div>
-          </div>
-          <h4>shipping info</h4>
-          <div className="details-container">
-            <div className="form-field address-field">
-              <label htmlFor="address">Your Address</label>
-              <input
-                {...register("address", {
-                  required: { value: true, message: "Address is required" },
-                })}
-                placeholder="1137 Williams Avenue"
-                className={
-                  errors.address ? "address-field is-invalid" : "address-field"
-                }
-                autoComplete="off"
-              />
-              <p className="error">{errors.address?.message}</p>
-            </div>
-            <div className="form-field">
-              <label htmlFor="zip">ZIP Code</label>
-              <input
-                {...register("zip", {
-                  required: { value: true, message: "Zip code is required" },
-                })}
-                placeholder="10001"
-                className={errors.zip ? "is-invalid" : ""}
-              />
-              <p className="error">{errors.zip?.message}</p>
-            </div>
-            <div className="form-field">
-              <label htmlFor="city">City</label>
-              <input
-                {...register("city", {
-                  required: { value: true, message: "City is required" },
-                })}
-                placeholder="New York"
-                className={errors.city ? "is-invalid" : ""}
-                autoComplete="off"
-              />
+            <h4>shipping info</h4>
+            <div className="details-container">
+              <div className="form-field address-field">
+                <label htmlFor="address">Your Address</label>
+                <input
+                  {...register("address", {
+                    required: { value: true, message: "Address is required" },
+                  })}
+                  placeholder="1137 Williams Avenue"
+                  className={
+                    errors.address
+                      ? "address-field is-invalid"
+                      : "address-field"
+                  }
+                  autoComplete="off"
+                />
+                <p className="error">{errors.address?.message}</p>
+              </div>
+              <div className="form-field">
+                <label htmlFor="zip">ZIP Code</label>
+                <input
+                  {...register("zip", {
+                    required: { value: true, message: "Zip code is required" },
+                  })}
+                  placeholder="10001"
+                  className={errors.zip ? "is-invalid" : ""}
+                />
+                <p className="error">{errors.zip?.message}</p>
+              </div>
+              <div className="form-field">
+                <label htmlFor="city">City</label>
+                <input
+                  {...register("city", {
+                    required: { value: true, message: "City is required" },
+                  })}
+                  placeholder="New York"
+                  className={errors.city ? "is-invalid" : ""}
+                  autoComplete="off"
+                />
 
-              <p className="error">{errors.city?.message}</p>
+                <p className="error">{errors.city?.message}</p>
+              </div>
+              <div className="form-field">
+                <label htmlFor="country">Country</label>
+                <input
+                  {...register("country", {
+                    required: { value: true, message: "Country is required" },
+                  })}
+                  placeholder="United States"
+                  className={errors.country ? "is-invalid" : ""}
+                  autoComplete="off"
+                />
+                <p className="error">{errors.country?.message}</p>
+              </div>
             </div>
-            <div className="form-field">
-              <label htmlFor="country">Country</label>
-              <input
-                {...register("country", {
-                  required: { value: true, message: "Country is required" },
-                })}
-                placeholder="United States"
-                className={errors.country ? "is-invalid" : ""}
-                autoComplete="off"
-              />
-              <p className="error">{errors.country?.message}</p>
+            <h4>payment details</h4>
+            <div className="payment-ct">
+              <p>Payment Method</p>
+              <div className="method-ct">
+                <div
+                  className={
+                    errors.payment ? "radio-field is-invalid" : "radio-field"
+                  }
+                >
+                  <input
+                    {...register("payment", {
+                      required: {
+                        value: true,
+                        message: "Please check payment method",
+                      },
+                    })}
+                    type="radio"
+                    value="e-money"
+                    id="e-money"
+                    style={{ width: "2rem", height: "2rem" }}
+                  />
+                  <label htmlFor="e-money">e-Money</label>
+                </div>
+                <div
+                  className={
+                    errors.payment ? "radio-field is-invalid" : "radio-field"
+                  }
+                >
+                  <input
+                    {...register("payment", {
+                      required: {
+                        value: true,
+                        message: "Please check payment method",
+                      },
+                    })}
+                    type="radio"
+                    id="cash"
+                    value="cash"
+                    style={{ width: "2rem", height: "2rem" }}
+                  />
+                  <label htmlFor="cash">Cash on Delivery</label>
+                  <p className="error">{errors.payment?.message}</p>
+                </div>
+              </div>
             </div>
-          </div>
-          <h4>payment details</h4>
-          <div className="payment-ct">
-            <div
-              className={
-                errors.payment ? "radio-field is-invalid" : "radio-field"
-              }
-            >
-              <input
-                {...register("payment", {
-                  required: {
-                    value: true,
-                    message: "Please check payment method",
-                  },
-                })}
-                type="radio"
-                // name="payment"
-                value="e-money"
-                id="e-money"
-                style={{ width: "2rem", height: "2rem" }}
-              />
-              <label htmlFor="e-money">e-Money</label>
+            <div className="emoney-ct">
+              <div className="form-field">
+                <label htmlFor="emoneyN">e-Money Number</label>
+                <input
+                  {...register("emoneyN", {
+                    required: {
+                      value: true,
+                      message: "e-Money Number is required",
+                    },
+                  })}
+                  placeholder="United States"
+                  className={errors.emoneyN ? "is-invalid" : ""}
+                  autoComplete="off"
+                />
+                <p className="error">{errors.emoneyN?.message}</p>
+              </div>
+              <div className="form-field">
+                <label htmlFor="pin">e-Money PIN</label>
+                <input
+                  {...register("pin", {
+                    required: { value: true, message: "Pin is required" },
+                  })}
+                  placeholder="6891"
+                  className={errors.pin ? "is-invalid" : ""}
+                  autoComplete="off"
+                />
+                <p className="error">{errors.pin?.message}</p>
+              </div>
             </div>
-
-            <div
-              className={
-                errors.payment ? "radio-field is-invalid" : "radio-field"
-              }
-            >
-              <input
-                {...register("payment", {
-                  required: {
-                    value: true,
-                    message: "Please check payment method",
-                  },
-                })}
-                type="radio"
-                id="cash"
-                // name="payment"
-                value="cash"
-                style={{ width: "2rem", height: "2rem" }}
-              />
-              <label htmlFor="cash">Cash on Delivery</label>
-            </div>
-          </div>
-          <p className="error">{errors.payment?.message}</p>
-          <input
-            type="submit"
-            className="btn btn--full"
-            value="CONTINUE & PAY"
-          />
-        </form>
+            <input
+              type="submit"
+              id="btn-checkout"
+              className="btn btn--full btn-checkout"
+              value="CONTINUE & PAY"
+              form="checkout-form"
+            />
+          </form>
+        </div>
+        <div>
+          <Summary />
+        </div>
       </div>
     </Wrapper>
   );
@@ -269,7 +324,9 @@ const Wrapper = styled.div`
     background-color: #fbaf85;
     color: #fff;
   }
-
+  .btn-checkout {
+    visibility: hidden;
+  }
   input:-webkit-autofill,
   input:-webkit-autofill:hover,
   input:-webkit-autofill:active,
@@ -284,6 +341,24 @@ const Wrapper = styled.div`
     flex-direction: column;
     gap: 1.6rem;
     margin-bottom: 3.2rem;
+    p {
+      font-weight: 700;
+      font-size: 1.2rem;
+      line-height: 1.6rem;
+      letter-spacing: -0.21px;
+      color: #000000;
+      margin-bottom: 0.2rem;
+    }
+  }
+  .method-ct {
+    display: flex;
+    flex-direction: column;
+    gap: 1.6rem;
+  }
+  .emoney-ct {
+    display: flex;
+    flex-direction: column;
+    gap: 2.4rem;
   }
   .radio-field {
     width: 28rem;
@@ -338,6 +413,14 @@ const Wrapper = styled.div`
     }
     .radio-field {
       width: 30.9rem;
+    }
+    .emoney-ct {
+      flex-direction: row;
+      gap: 1.6rem;
+    }
+    .payment-ct {
+      flex-direction: row;
+      justify-content: space-between;
     }
   }
   @media (min-width: 90em) {

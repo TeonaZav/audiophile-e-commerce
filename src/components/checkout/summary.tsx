@@ -1,10 +1,15 @@
 import styled from "styled-components";
-import { NavLink } from "react-router-dom";
 import { useCartContext } from "../../context/cart_context";
 import { PriceFormatter } from "../../utils/HelperFunctions";
 import CheckoutItem from "./CheckoutItem";
 function Summary() {
-  const { cart, totalItems, cartTotal, openConfirmation } = useCartContext();
+  const { cart, cartTotal } = useCartContext();
+  const clickH = () => {
+    const element: HTMLElement = document.querySelector(
+      "#btn-checkout"
+    ) as HTMLElement;
+    element.click();
+  };
   return (
     <Wrapper>
       <div className="summary">
@@ -45,19 +50,21 @@ function Summary() {
             </p>
           </div>
 
-          <NavLink
-            to="/checkout"
+          <label
+            onClick={clickH}
+            htmlFor="btn-checkout"
             className="btn btn--full"
-            onClick={openConfirmation}
           >
-            CONTINUE & PAY
-          </NavLink>
+            CONTINUE
+          </label>
         </div>
       </div>
     </Wrapper>
   );
 }
 const Wrapper = styled.div`
+  position: relative;
+  top: 0;
   .summary {
     width: 32.7rem;
     background-color: #ffffff;
@@ -120,6 +127,7 @@ const Wrapper = styled.div`
     text-align: center;
     width: 100%;
   }
+
   @media (min-width: 48em) {
     .summary {
       width: 68.9rem;
@@ -131,7 +139,6 @@ const Wrapper = styled.div`
   @media (min-width: 90em) {
     .summary {
       width: 35rem;
-      margin-top: 3.8rem;
     }
   }
 `;

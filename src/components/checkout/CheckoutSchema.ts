@@ -11,5 +11,14 @@ const schema = Yup.object({
   zip: Yup.string(),
   city: Yup.string().required("City can't be empty"),
   country: Yup.string().required("Country can't be empty").max(30, "Too long"),
+  payment: Yup.string().required("Choose the payment method"),
+  emoneyN: Yup.string()
+    .required("e-Money Number is required")
+    .max(9, "Too long")
+    .min(9, "Too short"),
+  pin: Yup.string()
+    .required("Pin can't be empty")
+    .max(4, "Too long")
+    .min(4, "Too short"),
 });
 export default schema;
