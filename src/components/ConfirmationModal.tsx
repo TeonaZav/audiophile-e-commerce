@@ -11,48 +11,54 @@ function ConfirmationModal() {
   return (
     <Wrapper>
       <div className={!confirmationIsOpen ? "modal hidden" : "modal"}>
-        <div className="modal-main-content">
-          <div className="modal__header">
-            <div className="icon-wrap">
-              <FontAwesomeIcon className="check-icon" icon={faCheck} />
-            </div>
-
-            <h4>
-              THANK YOU
-              <br /> FOR YOUR ORDER
-            </h4>
-            <p>You will receive an email confirmation shortly.</p>
-          </div>
-          <div className="product-ct">
-            <div>
-              <div className="purchased-products">
-                <CheckoutItem
-                  key={cart[0].id}
-                  id={cart[0].id}
-                  image={cart[0].image}
-                  name={cart[0].name}
-                  price={cart[0].price}
-                  quantity={cart[0].quantity}
-                  item={cart[0]}
-                />
+        {cart && cart.length > 0 ? (
+          <div className="modal-main-content">
+            <div className="modal__header">
+              <div className="icon-wrap">
+                <FontAwesomeIcon className="check-icon" icon={faCheck} />
               </div>
-              {totalItems - cart[0].quantity !== 0 && (
-                <div className="other-items">
-                  <p>and {totalItems - cart[0].quantity} other item(s)</p>
+
+              <h4>
+                THANK YOU
+                <br /> FOR YOUR ORDER
+              </h4>
+              <p>You will receive an email confirmation shortly.</p>
+            </div>
+            <div className="product-ct">
+              <div>
+                <div className="purchased-products">
+                  <CheckoutItem
+                    key={cart[0].id}
+                    id={cart[0].id}
+                    image={cart[0].image}
+                    name={cart[0].name}
+                    price={cart[0].price}
+                    quantity={cart[0].quantity}
+                    item={cart[0]}
+                  />
                 </div>
-              )}
+                {totalItems - cart[0].quantity !== 0 && (
+                  <div className="other-items">
+                    <p>and {totalItems - cart[0].quantity} other item(s)</p>
+                  </div>
+                )}
+              </div>
+
+              <div className="total-paid">
+                <h5>GRAND TOTAL</h5>
+                <p>{PriceFormatter(cartTotal + 50)}</p>
+              </div>
             </div>
 
-            <div className="total-paid">
-              <h5>GRAND TOTAL</h5>
-              <p>{PriceFormatter(cartTotal + 50)}</p>
-            </div>
+            <NavLink
+              to="/"
+              className="btn btn--full"
+              onClick={closeConfirmation}
+            >
+              BACK TO HOME
+            </NavLink>
           </div>
-
-          <NavLink to="/" className="btn btn--full" onClick={closeConfirmation}>
-            BACK TO HOME
-          </NavLink>
-        </div>
+        ) : null}
       </div>
     </Wrapper>
   );
